@@ -1,0 +1,31 @@
+<?php
+/**
+ * Dica do PHP quando for declarar um atributo/variavel, da proxima vez que for usar ele coloca-se
+ *  o $this->
+ * Pois se vc colocar '$servidor' ja estando declarado la em cima ele pode interpretar como uma
+ * variavel sendo criada novamente
+*/
+class ConectaBanco
+{   
+    private $servidor = "localhost";
+    private $usuario = "root";
+    private $senha = "";
+    private $banco = "db_listacontatos";
+    protected $con;
+    protected $st_query;
+
+    protected function conectar()
+    {
+        try
+        {
+            $this->con = new PDO("mysql:host=$this->servidor;dbname=$this->banco",$this->usuario,$this->senha);
+            return $this->con;
+        }
+        catch(PDOException $error)
+        {
+            echo "ERROR: Conexão falhou<br>" . $error->getMessage();
+        }
+    }
+}
+
+?>
