@@ -5,13 +5,13 @@
  * Pois se vc colocar '$servidor' ja estando declarado la em cima ele pode interpretar como uma
  * variavel sendo criada novamente
 */
-class ConectaBanco
+abstract class ConectaBanco
 {   
     private $servidor = "localhost";
     private $usuario = "root";
     private $senha = "";
     private $banco = "db_listacontatos";
-    protected $con;
+    private $con;
     protected $st_query;
 
     protected function conectar()
