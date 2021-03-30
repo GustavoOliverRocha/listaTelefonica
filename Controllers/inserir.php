@@ -1,9 +1,9 @@
 <?php
 require "../Models/Usuario.php";
-$u = new Usuario(0,$_POST['nome'],$_POST['senha']);
+$u = new Usuario($_POST['nome'],null,null);
+$u->loadById($u->getId());
 ?>
 
 <html>
-<h1><?php $u->save(); ?><h1>
 
 </html>
