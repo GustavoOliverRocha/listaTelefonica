@@ -6,11 +6,15 @@ class Usuario extends ConectaBanco
     private $st_nome;
     private $st_senha;
 
-    function __construct($id,$nm,$se)
+    /*function __construct($id,$nm,$se)
     {
         $this->id_usuario = $id;
         $this->st_nome = $nm;
         $this->setSenha($se);
+    }*/
+    function __construct()
+    {
+
     }
     public function getId()
     {
@@ -36,7 +40,7 @@ class Usuario extends ConectaBanco
     }
     public function setSenha($s)
     {
-        $this->st_senha =sha1($s,true);
+        $this->st_senha =$s;
     }
     /**
      * Metodo de Criar e Alterar
@@ -97,8 +101,8 @@ class Usuario extends ConectaBanco
             {
                 $u = new Usuario();
                 $u->setId($retorno->cd_usuario);
-                $u->setId($retorno->nm_usuario);
-                $u->setId($retorno->pw_usuario);
+                $u->setNome($retorno->nm_usuario);
+                $u->setSenha($retorno->pw_usuario);
                 array_push($v_usuarios,$u);
             }   
         }
