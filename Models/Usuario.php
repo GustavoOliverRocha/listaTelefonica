@@ -36,7 +36,7 @@ class Usuario extends ConectaBanco
 
     public function getSenha()
     {
-        return $this->st_senha;
+        return sha1($this->st_senha,true);
     }
     public function setSenha($s)
     {
@@ -77,7 +77,11 @@ class Usuario extends ConectaBanco
         } 
 
     }
-
+    /**
+     * Metodo Deletar()
+     * caso o atributo id_usuario não seja nulo ele executa a query
+     * caso seja ele retorna false
+     */
     public function deletar()
     {
         if(!is_null($this->id_usuario))
@@ -88,16 +92,16 @@ class Usuario extends ConectaBanco
         }
         return false;
     }
-
+    /**
+     * Metodo listar
+     * Basicamente o $v_usuarios vai ser um array onde cada indice será um objeto contendo as linhas(rows)
+     * do banco
+     */
     public function listarUsuarios()
     {
         //Vetor Usuarios
-        if(is_null($this->id_usuario))
-            $st_query = "SELECT * FROM tb_usuario;";
-        else 
-            $st_query = "SELECT * FROM tb_usuario WHERE cd_usuario = $this->id_usuario";
         $v_usuarios = [];
-        
+        $st_query = "SELECT * FROM tb_usuario;"; 
         try
         {
             //Pegando o retorno do bando
@@ -115,10 +119,14 @@ class Usuario extends ConectaBanco
 		{}
         return $v_usuarios;
     }
-
+    /**
+     * Metodo para carregar o usuario pela ID
+     * ao contario do listar ele retorná só um objeto que será a linha de retorno do banco
+     * porém são será facil exibir ele na tela
+     * ele só vai servir pro back-end e para as comparações
+     */
     public function loadById($id)
     {
-        $v_usuarios = [];
         $st_query = "SELECT * FROM tb_usuario WHERE cd_usuario = $id";
         try
         {
@@ -128,7 +136,6 @@ class Usuario extends ConectaBanco
             $this->setNome($retorno->nm_usuario);
             $this->setSenha($retorno->pw_usuario);
             return $this;
-            
         }
         catch(PDOException $error)
 		{

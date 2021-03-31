@@ -7,15 +7,24 @@
     <title>Document</title>
 </head>
 <body>
-    <!--<form method="POST" action="Controllers/inserir.php">
+    <form method="POST" action="Controllers/inserir.php?asuna=0">
         Nome de Usuario:<input type="text" name="nome"/><br><br>
-        Senha:<input type="password" name="senha" id="senha"/><br><br>
-        Confirmar Senha:<input type="password" id="comf"/><br><br>
-        <button type="submit" id="btn">Confirmar</button>
-    </form>-->
-    <form method="POST" action="Controllers/inserir.php">
+        Senha:<input type="password" name="senha"/><br><br>
+        Confirmar Senha:<input type="password"/><br><br>
+        <button type="submit">Confirmar</button>
+    </form>
+    <form method="POST" action="Controllers/inserir.php?asuna=1">
         Nome do Contato:<input type="text" name="nome"/><br><br>
-        Email:<input type="password" name="email"/><br><br>
+        Email:<input type="text" name="email"/><br><br>
+        Usuario id:<input type="text" name="id"/><br><br>
+        <button type="submit">Confirmar</button>
+    </form>
+
+    <form method="POST" action="Controllers/inserir.php?asuna=2">
+        DDD:<input type="text" name="ddd"/><br><br>
+        Tel::<input type="text" name="tel"/><br><br>
+        Tipo::<input type="text" name="tipo"/><br><br>
+        Contato ID::<input type="text" name="id"/><br><br>
         <button type="submit" id="btn">Confirmar</button>
     </form>
 </body>

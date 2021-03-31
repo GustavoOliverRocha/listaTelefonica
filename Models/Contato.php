@@ -1,17 +1,15 @@
 <?php
-class Contato
+require_once "../Models/ConectaBanco.php";
+class Contato extends ConectaBanco
 {
     private $id_contato;
     private $st_nome;
     private $st_email;
     private $usuario_id;
 
-    function __construct($i,$n,$e,$ui)
+    function __construct()
     {
-        $this->id_contato = $i;
-        $this->st_nome = $n;
-        $this->st_email = $e;
-        $this->usuario_id = $ui;
+
     }
 
     public function getId()
@@ -54,11 +52,11 @@ class Contato
     {
         if(is_null($this->id_contato))
         {
-            $st_query = "INSERT INTO tb_contato(nm_contato,nm_email,fk_cd_usuario)VALUES('".$this->st_nome."','".$this->st_email(),$this->usuario_id."')";
+            $st_query = "INSERT INTO tb_contato(nm_contato,nm_email,fk_cd_usuario)VALUES('$this->st_nome','$this->st_email',$this->usuario_id);";
         }
         else
         {
-            $st_query = "UPDATE tb_contato SET nm_contato = '$this->st_nome',nm_email = '".$this->st_email()."' WHERE cd_contato = $this->id_contato;";
+            $st_query = "UPDATE tb_contato SET nm_contato = '$this->st_nome',nm_email = '".$this->st_email."' WHERE cd_contato = $this->id_contato;";
         }
         try
         {
@@ -66,6 +64,7 @@ class Contato
             //Assim pode ser usar isso para verificar se realmente houve inserção no banco
             if($this->conectar()->exec($st_query) > 0)
             {
+                echo "Criação/Atualização do Contato Sucesso";
                 return true;
             }
             else
@@ -79,6 +78,67 @@ class Contato
         {
             echo "ERROR: <br>".$e->getMessage();
         } 
+        return false;
+    }
+
+    public function listarContatos()
+    {
+        //Vetor Usuarios
+        $v_contatos = [];
+        if(is_null($this->id_contato))
+            $st_query = "SELECT * FROM tb_contato;";
+        else 
+            $st_query = "SELECT * FROM tb_contato WHERE cd_contato = $this->id_contato"; 
+
+        try
+        {
+            //Pegando o retorno do bando
+            $dados = $this->conectar()->query($st_query);
+            while($retorno = $dados->fetchObject())
+            {
+                $c = new Contato();
+                $c->setId($retorno->cd_contato);
+                $c->setNome($retorno->nm_contato);
+                $c->setEmail($retorno->nm_email);
+                array_push($v_contatos,$c);
+            }   
+        }
+        catch(PDOException $error)
+		{}
+        return $v_contatos;
+    }
+
+    public function loadById($id)
+    {
+        //$v_contatos = [];
+        $st_query = "SELECT * FROM tb_contato WHERE cd_contato = $id";
+        try
+        {
+            $dados = $this->conectar()->query($st_query);
+            $retorno = $dados->fetchObject();
+            $this->setId($retorno->cd_contato);
+            $this->setNome($retorno->nm_contato);
+            $this->setEmail($retorno->nm_email);
+            return $this; 
+        }
+        catch(PDOException $error)
+		{
+            echo "ERROR: ";
+        }
+        return false;
+    }
+
+
+    public function deletar()
+    {
+        if(!is_null($this->id_contato))
+        {
+            
+            $st_query = "DELETE FROM tb_contato WHERE cd_contato = $this->id_contato;";
+            if($this->conectar()->exec($st_query) > 0)
+                echo "Deletação completa";
+        }
+        echo "ERROR: 87 HG 55F 2DS";
         return false;
     }
 
