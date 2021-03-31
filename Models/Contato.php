@@ -49,5 +49,39 @@ class Contato
     {
         $this->usuario_id = $u_id;
     }
+
+    public function save()
+    {
+        if(is_null($this->id_contato))
+        {
+            $st_query = "INSERT INTO tb_contato(nm_contato,nm_email,fk_cd_usuario)VALUES('".$this->st_nome."','".$this->st_email(),$this->usuario_id."')";
+        }
+        else
+        {
+            $st_query = "UPDATE tb_contato SET nm_contato = '$this->st_nome',nm_email = '".$this->st_email()."' WHERE cd_contato = $this->id_contato;";
+        }
+        try
+        {
+            //A função exec alem de executar comando SQL ela também retorna o numero de linhas afetadas
+            //Assim pode ser usar isso para verificar se realmente houve inserção no banco
+            if($this->conectar()->exec($st_query) > 0)
+            {
+                return true;
+            }
+            else
+            {
+                echo "ERROR: <br>0H 59 44 23 47 77";
+                return false;
+            }
+            
+        }
+        catch(PDOException $e)
+        {
+            echo "ERROR: <br>".$e->getMessage();
+        } 
+        return false;
+    }
+
+
 }
 ?>

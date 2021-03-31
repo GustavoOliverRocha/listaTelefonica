@@ -92,10 +92,15 @@ class Usuario extends ConectaBanco
     public function listarUsuarios()
     {
         //Vetor Usuarios
+        if(is_null($this->id_usuario))
+            $st_query = "SELECT * FROM tb_usuario;";
+        else 
+            $st_query = "SELECT * FROM tb_usuario WHERE cd_usuario = $this->id_usuario";
         $v_usuarios = [];
-        $st_query = "SELECT * FROM tb_usuario;";
+        
         try
         {
+            //Pegando o retorno do bando
             $dados = $this->conectar()->query($st_query);
             while($retorno = $dados->fetchObject())
             {
@@ -113,10 +118,23 @@ class Usuario extends ConectaBanco
 
     public function loadById($id)
     {
-        $st_query = "SELECT * FROM tb_contato WHERE fk_cd_usuario = $id";
-        $dados = $this->conectar()->query($st_query);
-        $retorno = $dados->fetchAll();
-        var_dump($retorno);
+        $v_usuarios = [];
+        $st_query = "SELECT * FROM tb_usuario WHERE cd_usuario = $id";
+        try
+        {
+            $dados = $this->conectar()->query($st_query);
+            $retorno = $dados->fetchObject();
+            $this->setId($retorno->cd_usuario);
+            $this->setNome($retorno->nm_usuario);
+            $this->setSenha($retorno->pw_usuario);
+            return $this;
+            
+        }
+        catch(PDOException $error)
+		{
+            echo "ERROR: ";
+        }
+        return false;
     }
 }
 ?>
