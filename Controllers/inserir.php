@@ -12,24 +12,43 @@ switch($_GET['asuna'])
 {
 case 0:
     //$u->setId(12);
-    $u->setNome($_POST['nome']);
+    /*$u->setNome($_POST['nome']);
     $u->setSenha($_POST['senha']);
-    $u->save();
+    $u->save();*/
+   $vu = $u->listarUsuarios();
+   for($i=0;$i<sizeof($vu);$i++)
+   {
+        echo $vu[$i]->getId()."  ".$vu[$i]->getNome()."   ".$vu[$i]->getSenha()."<br>";
+   }
+   /*echo $vu->getNome();
+   echo $vu->getSenha();*/
 break;
 case 1:
     //$c->setId(11);
-    $c->setNome($_POST['nome']);
+   /* $c->setNome($_POST['nome']);
     $c->setEmail($_POST['email']);
     $c->setUsuarioId($_POST['id']);
-    $c->save();
+    $c->save();*/
+    $c = new Contato();
+    $vu = $c->listarContatos();
+    for($i=0;$i<sizeof($vu);$i++)
+    {
+         echo $vu[$i]->getId()."  ".$vu[$i]->getNome()."   ".$vu[$i]->getEmail()."  ".$vu[$i]->getUsuarioId()."<br>";
+    }
 break;
 case 2://Eu não coloquei Auto_increment na tabela telefone pois queria tentar com o SELECT MAX()
     //$t->setId(8);
-    $t->setDdd($_POST['ddd']);
+   /* $t->setDdd($_POST['ddd']);
     $t->setNum($_POST['tel']);
     $t->setTipo($_POST['tipo']);
     $t->setContatoId($_POST['id']);
-    $t->save();
+    $t->save();*/
+    $c = new Telefone();
+    $vu = $c->listarTelefone(2);
+    for($i=0;$i<sizeof($vu);$i++)
+    {
+         echo $vu[$i]->getId()."  ".$vu[$i]->getDdd()."   ".$vu[$i]->getNum()."  ".$vu[$i]->getTipo()."   ".$vu[$i]->getContatoId()."<br>";
+    }
 break;
 default: "ERROR";
 }

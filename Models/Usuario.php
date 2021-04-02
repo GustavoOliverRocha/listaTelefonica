@@ -125,17 +125,26 @@ class Usuario extends ConectaBanco
      * porém são será facil exibir ele na tela
      * ele só vai servir pro back-end e para as comparações
      */
-    public function loadById($id)
+    public function loadByLogin($email,$senha)
     {
-        $st_query = "SELECT * FROM tb_usuario WHERE cd_usuario = $id";
+        $st_query = "SELECT * FROM tb_usuario WHERE nm_usuario = '$email' and pw_usuario = '$senha'";
         try
         {
             $dados = $this->conectar()->query($st_query);
             $retorno = $dados->fetchObject();
-            $this->setId($retorno->cd_usuario);
-            $this->setNome($retorno->nm_usuario);
-            $this->setSenha($retorno->pw_usuario);
-            return $this;
+            if(!$retorno)
+            {
+                //echo "Errado";
+                return false
+            }
+            else
+            {
+                $this->setId($retorno->cd_usuario);
+                $this->setNome($retorno->nm_usuario);
+                $this->setSenha($retorno->pw_usuario);
+                return $this;
+            }
+
         }
         catch(PDOException $error)
 		{
