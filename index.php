@@ -1,3 +1,4 @@
+<?php?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,10 +28,16 @@
         Contato ID::<input type="text" name="id"/><br><br>
         <button type="submit" id="btn">Confirmar</button>
     </form>-->
-    <form method="POST" action="teste.php">
+    <form method="POST" action="teste.php?asuna=1">
         Usuario: <input type="text" name='login'/><br><br>
         Senha: <input type="password" name='senha'/><br><br>
-        <button type="submit">Entrar</button>
+        <button type="submit">Logar</button>
+    </form>
+    <br><br><br>
+    <form method="POST" action="teste.php?asuna=2">
+        Usuario: <input type="text" name='login'/><br><br>
+        Senha: <input type="password" name='senha'/><br><br>
+        <button type="submit">Cadastrar</button>
     </form>
 </body>
 </html>

@@ -16,5 +16,22 @@ foreach($regis[$key] as $yui)
 }*/
 require_once "Controllers/UsuarioController.php";
 $uc = new UsuarioController();
-$uc->logarUsuario();
+if($_GET['asuna'] == 1)
+    $uc->logarUsuario();
+else if($_GET['asuna'] == 2)
+    $uc->cadastrarUsuario();
+
+
 ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="../">Deslogar</a>
+</body>
+</html>

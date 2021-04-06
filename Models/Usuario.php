@@ -135,7 +135,7 @@ class Usuario extends ConectaBanco
             if(!$retorno)
             {
                 //echo "Errado";
-                return false
+                return false;
             }
             else
             {
@@ -143,6 +143,30 @@ class Usuario extends ConectaBanco
                 $this->setNome($retorno->nm_usuario);
                 $this->setSenha($retorno->pw_usuario);
                 return $this;
+            }
+
+        }
+        catch(PDOException $error)
+		{
+            echo "ERROR: ";
+        }
+        return false;
+    }
+
+    public function loadByUsuario($nm_usuario)
+    {
+        $st_query = "SELECT nm_usuario FROM tb_usuario WHERE nm_usuario = '$nm_usuario'";
+        try
+        {
+            $dados = $this->conectar()->query($st_query);
+            $retorno = $dados->fetchObject();
+            if(!$retorno)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
             }
 
         }
