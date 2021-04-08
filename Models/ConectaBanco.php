@@ -5,6 +5,11 @@
  * Pois se vc colocar '$servidor' ja estando declarado la em cima ele pode interpretar como uma
  * variavel sendo criada novamente
 */
+/**
+ * Class Abstrata ConectaBanco
+ * serve para conectar ao banco de dados
+ * ela não poderá ser instanciada só as classes do Model irão acessar ela
+ */
 abstract class ConectaBanco
 {   
     private $servidor = "localhost";

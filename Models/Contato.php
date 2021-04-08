@@ -1,7 +1,10 @@
 <?php
-require_once "../Models/ConectaBanco.php";
+require_once "ConectaBanco.php";
 class Contato extends ConectaBanco
 {
+    /**
+     * Atributos
+     */
     private $id_contato;
     private $st_nome;
     private $st_email;
@@ -11,7 +14,9 @@ class Contato extends ConectaBanco
     {
 
     }
-
+    /**
+     * Metodos Especiais
+     */
     public function getId()
     {
         return $this->id_contato;
@@ -48,6 +53,11 @@ class Contato extends ConectaBanco
         $this->usuario_id = $u_id;
     }
 
+    /**
+     * save(): Servirá para inserir ou alterar os dados do contato
+     * se caso o atributo $id for nulo ele irá fazer uma inserção
+     * caso contrario ele fará uma alteração ja que ele sabe quem é
+     */
     public function save()
     {
         if(is_null($this->id_contato))
@@ -60,8 +70,10 @@ class Contato extends ConectaBanco
         }
         try
         {
-            //A função exec alem de executar comando SQL ela também retorna o numero de linhas afetadas
-            //Assim pode ser usar isso para verificar se realmente houve inserção no banco
+            /**
+             * A função exec() alem de executar o comando SQL ela também retorna o numero de linhas afetadas
+             * Assim pode ser usar isso para verificar se realmente houve inserção no banco
+             */
             if($this->conectar()->exec($st_query) > 0)
             {
                 echo "Criação/Atualização do Contato Sucesso";
@@ -80,19 +92,22 @@ class Contato extends ConectaBanco
         } 
         return false;
     }
-
-    public function listarContatos()
+    /**
+     * Metodo listar(param)
+     * serve para mostrar os contatos de acordo com o id do Usuario
+     */
+    public function listar($id)
     {
         //Vetor Usuarios
         $v_contatos = [];
-        if(is_null($this->id_contato))
-            $st_query = "SELECT * FROM tb_contato;";
-        else 
-            $st_query = "SELECT * FROM tb_contato WHERE cd_contato = $this->id_contato"; 
+        $st_query = "SELECT * FROM tb_contato WHERE fk_cd_usuario = $id"; 
 
         try
         {
-            //Pegando o retorno do bando
+            /**
+             * Recebendo os dados do banco como objeto com fetchObject()
+             * caso não haja nada na requisição ele retornará false
+             */
             $dados = $this->conectar()->query($st_query);
             while($retorno = $dados->fetchObject())
             {
@@ -107,7 +122,11 @@ class Contato extends ConectaBanco
 		{}
         return $v_contatos;
     }
-
+    /**
+     * loadById(param)
+     * essa função vai servir para carregar os dados de um contato em especifico
+     * muito util para fazer deletes e...
+     */
     public function loadById($id)
     {
         //$v_contatos = [];
