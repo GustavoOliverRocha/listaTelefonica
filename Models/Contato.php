@@ -56,7 +56,7 @@ class Contato extends ConectaBanco
     /**
      * save(): Servirá para inserir ou alterar os dados do contato
      * se caso o atributo $id for nulo ele irá fazer uma inserção
-     * caso contrario ele fará uma alteração ja que ele sabe quem é
+     * caso contrario ele fará uma alteração ja que o metodo sabe quem é
      */
     public function save()
     {
@@ -72,7 +72,7 @@ class Contato extends ConectaBanco
         {
             /**
              * A função exec() alem de executar o comando SQL ela também retorna o numero de linhas afetadas
-             * Assim pode ser usar isso para verificar se realmente houve inserção no banco
+             * Assim pode-se usar isso para verificar se realmente houve inserção no banco
              */
             if($this->conectar()->exec($st_query) > 0)
             {
@@ -94,7 +94,9 @@ class Contato extends ConectaBanco
     }
     /**
      * Metodo listar(param)
-     * serve para mostrar os contatos de acordo com o id do Usuario
+     * serve para mostrar os Contatos de acordo com o id do Usuario
+     * Retornará um array contendo um objeto para cada linha do banco que foi retornada
+     * Então o Id,Nome e Email(juntos) de cada contato estarão tudo em cada vetor
      */
     public function listar($id)
     {
@@ -105,7 +107,8 @@ class Contato extends ConectaBanco
         try
         {
             /**
-             * Recebendo os dados do banco como objeto com fetchObject()
+             * O fetchObject() ele retorna os dados do banco como objeto
+             * Recebendo os dados do banco como objeto
              * caso não haja nada na requisição ele retornará false
              */
             $dados = $this->conectar()->query($st_query);
@@ -122,6 +125,7 @@ class Contato extends ConectaBanco
 		{}
         return $v_contatos;
     }
+
     /**
      * loadById(param)
      * essa função vai servir para carregar os dados de um contato em especifico
@@ -152,12 +156,11 @@ class Contato extends ConectaBanco
     {
         if(!is_null($this->id_contato))
         {
-            
             $st_query = "DELETE FROM tb_contato WHERE cd_contato = $this->id_contato;";
             if($this->conectar()->exec($st_query) > 0)
-                echo "Deletação completa";
+                return true;
         }
-        echo "ERROR: 87 HG 55F 2DS";
+        //echo "ERROR: 87 HG 55F 2DS";
         return false;
     }
 

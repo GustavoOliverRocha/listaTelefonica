@@ -2,6 +2,9 @@
 require_once "../Models/ConectaBanco.php";
 class Telefone extends ConectaBanco
 {
+    /**
+     * Atributos
+     */
     private $id_tel;
     private $int_ddd;
     private $int_num;
@@ -12,6 +15,9 @@ class Telefone extends ConectaBanco
     {
     }
 
+    /**
+     * Metodos Especiais
+     */
     public function getId()
     {
         return $this->id_tel;

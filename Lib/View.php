@@ -1,17 +1,27 @@
 <?php
+/**
+ * Classe Responsavel por renderizar o HTML/Front-end/interface
+ */
 class View
 {
     private $conteudo;
     private $htmlFile;
     private $dados;
 
+    /**
+     * O construtor receberá o nome do arquivo HTML a ser renderizado
+     * que atribuirá ao atributos $htmlFile
+     */
     function __construct($html = null/*, $v_dados = null*/)
     {
         if($html != null)
             $this->setHtmlFile($html);
         //$this->dados = $v_dados;
     }
+
     /**
+     * getConteudo() vai ser aquele que vai retonar literalmente o HTML como uma string nele
+     * 
      * ob_start() meio que impede que as coisas que você requeriu apareçam na tela
      * ob_get_contents() vai capturar todo o conteudo durante o ob_start()
     */
@@ -35,22 +45,29 @@ class View
     {
         if(file_exists($html))
             $this->htmlFile = $html;
-        else   
-            throw new Exception("Arquivo: $html não foi encontrado ou não existe.");
+        else if(file_exists("pagina404.phtml"))
+            $this->htmlFile = "pagina404.phtml"; 
+        else
+            throw new Exception("ERROR: Arquivo: $html não foi encontrado ou não existe.");
             
     }
     /**
-     * Aqui ele vai receber os dados do Controller para exibir na pagina
+     * getDados() vai conter os dados do Controller
      */
     public function getDados()
     {
         return $this->dados;
     }
+    /**
+     * Será setado o Array contendo os objetos
+     */
     public function setDados(Array $v_dados)
     {
         $this->dados = $v_dados;
     }
-
+    /**
+     * Função onde a pagina será finalmente renderizada
+     */
     public function mostrarPagina()
     {
         echo $this->getConteudo();

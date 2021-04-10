@@ -1,0 +1,14 @@
+#Ativar a engine de reescrita responsavel pela rota amigavel
+RewriteEngine off
+
+#Condições
+#Para ler variáveis é necessário iniciar com '%' e colocar o nome entre '{}'
+# Algumas delas:
+# %{REQUEST_FILENAME} -> Contém o nome do script requisitado
+# %{REQUEST_METHOD} -> Contém o método usado na requisição POST, GET, PUT, HEAD.
+
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+#RewriteRule ^(.*)$ views/index.php?url=$1 [QSA,L]
+php_flag log_errors on
+php_value error_log erros_PHP.log

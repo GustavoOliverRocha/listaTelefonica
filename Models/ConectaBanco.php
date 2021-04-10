@@ -6,7 +6,7 @@
  * variavel sendo criada novamente
 */
 /**
- * Class Abstrata ConectaBanco
+ * Classe Abstrata ConectaBanco
  * serve para conectar ao banco de dados
  * ela não poderá ser instanciada só as classes do Model irão acessar ela
  */

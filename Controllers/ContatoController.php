@@ -1,12 +1,16 @@
 <?php
 require_once "./Models/Contato.php";
 require_once "./Lib/View.php";
-
+/**
+ * Tirando o UsuarioController todas as classes controllers
+ * começarão com o session_start() para carregar os dados do login
+ * pois afinal elas só estão disponiveis depois de logado
+ */
+session_start();
 class ContatoController
 {
     public function listarContatos()
-    {   
-        session_start();
+    {  
         if(isset($_SESSION['usuario'],$_SESSION['senha'],$_SESSION['id']))
         {
             $c = new Contato();
@@ -15,10 +19,6 @@ class ContatoController
  
             if(sizeof($vetor_con) > 0)
             {
-                /*foreach($vetor_con as $i)
-                {
-                    echo "ID: ".$i->getId()." Nome:&nbsp&nbsp&nbsp".$i->getNome()." E-mail:&nbsp&nbsp&nbsp".$i->getEmail()."<br>";
-                }*/
                 $v->setDados(array("contatos" => $vetor_con));
                 $v->mostrarPagina();
             }
@@ -30,6 +30,34 @@ class ContatoController
         {
             echo "ERROR: Você não está logado fi";
         }
+    } 
+
+    public function manterContatos()
+    {   $c= new Contato();
+        if(isset($_POST['nome_con'],$_POST['email_con']))
+        {
+            if(isset($_REQUEST['id_con']))
+                $c->loadById($_REQUEST['id_con']);
+            $c->setNome($_POST['nome_con']);
+            $c->setEmail($_POST['email_con']);
+            if($c->save())
+                Application::redirecionar("?controle=contato&metodo=listarContatos");
+            
+        }
+    }
+
+    public function deletarContato()
+    {
+        $c= new Contato();
+        if(isset($_REQUEST['id_con']))
+        {
+            $c->loadById($_REQUEST['id_con']);
+            if($c->deletar())
+                Application::redirecionar("?controle=contato&metodo=listarContatos");
+            else    
+                echo "ERROR: 87 HG 55F 2DS";
+        }
+
     }
 }
 

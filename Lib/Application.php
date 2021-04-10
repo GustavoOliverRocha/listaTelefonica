@@ -2,15 +2,32 @@
 
 class Application
 {
+    //Atributo terá o nome do Controller
     protected $rotaController;
+
+    //E esse o nome do metodo
     protected $rotaMetodo;
+
+    /**
+     * servirá para capturar o nome do Controller e o Metodo que serão passados na URL
+     * via GET
+     */
     public function rota()
     {
-        //Se a variavel $_REQUEST['controle'] for setada então ela será igual a $_REQUEST['controle'] senão será index
+        /**
+         * Operador ternario- condição ?(então) coisa :(senão) outra coisa
+         * Se a variavel $_REQUEST['controle'] for setada pela URL
+         * então ela será igual a $_REQUEST['controle'] senão será igual a index
+         */
         $this->rotaController = isset($_REQUEST['controle']) ? $_REQUEST['controle'] : 'index';
         $this->rotaMetodo = isset($_REQUEST['metodo']) ? $_REQUEST['metodo'] : 'indexRedirect';
     }
 
+    /**
+     * Metodo responsavel por "renderizar" o controller da respectiva classe
+     * acessando as classes Controllers e acionando seus metodos
+     * Tudo isso através da URL
+     */
     public function importarController()
     {
         $this->rota();
@@ -34,7 +51,7 @@ class Application
             throw new Exception("Metodo $metodo não encontrado ou existente.  ");
 
     }
-
+    
     public function redirecionar($url)
     {
         header("Location: $url");
