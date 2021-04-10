@@ -13,8 +13,11 @@ $v_contatos = $v_dados['contatos'];
     <title>Lista de Contatos</title>
 </head>
 <body>
-    <nav><a href="?controle=usuario&metodo=deslogar">Deslogar</a></nav>
-    <a href="registrarContatos.php">Inserir Contatos</a>
+    <nav>
+        <h4>Seja Bem Viado: <?php echo $_SESSION['usuario'];?></h4>
+        <a href="?controle=usuario&metodo=deslogar">Deslogar</a>   
+    </nav>
+    <a href="?controle=contato&metodo=manterContatos">Inserir Contatos</a>
     <table style="border: 3px;">
         <thead>
             <tr>
@@ -29,7 +32,7 @@ $v_contatos = $v_dados['contatos'];
                 <td><?php echo $i->getNome(); ?></td>
                 <td><?php echo $i->getEmail(); ?></td>
                 <td>Ver Telefones</td>
-                <td>Alterar</td>
+                <td><a href="?controle=contato&metodo=manterContatos&id_con=<?php echo $i->getId();?>">Alterar</a></td>
                 <td><a href="?controle=contato&metodo=deletarContato&id_con=<?php echo $i->getId();?>">Apagar</a></td>    
             </tr>
             <?php } ?>
