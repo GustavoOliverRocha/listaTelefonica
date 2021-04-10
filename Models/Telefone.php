@@ -1,5 +1,5 @@
 <?php
-require_once "../Models/ConectaBanco.php";
+require_once "./Models/ConectaBanco.php";
 class Telefone extends ConectaBanco
 {
     /**
@@ -89,7 +89,7 @@ class Telefone extends ConectaBanco
         }
     }
 
-    public function listarTelefone($id_contato)
+    public function listar($id_contato)
     {
         if(is_null($id_contato))
             $st_query = "SELECT * FROM tb_tel;";

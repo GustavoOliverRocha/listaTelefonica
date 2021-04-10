@@ -1,0 +1,35 @@
+
+<?php
+var_dump(session_status());
+$v_dados = $this->getDados();
+$v_tel = $v_dados['telefones'];
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Lista Telefonica</title>
+</head>
+<body>
+	<a href="?controle=telefone&metodo=manterTelefone">Inserir Telefone</a>
+	<a href="?controle=contato&metodo=listarContatos">Voltar</a>
+	<table>
+		<thead>
+			<tr>
+				<th>Número</th>
+				<th>Tipo</th>
+				<th>Ações</th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach($v_tel as $i){?>
+			<tr>
+				<td><?php echo "(".$i->getDdd().")".$i->getNum();?></td>
+				<td><?php echo $i->getTipo();?></td>
+                <td><a href="?controle=telefone&metodo=manterTelefone&tel_id=<?php $i->getId();?>">Alterar</a></td>
+                <td><a href="?controle=telefone&metodo=deleterTelefone&tel_id=<?php $i->getId();?>">Apagar</a></td>
+			</tr>
+			<?php } ?>
+		</tbody>
+	</table>
+</body>
+</html>

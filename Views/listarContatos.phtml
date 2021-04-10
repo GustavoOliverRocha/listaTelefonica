@@ -31,7 +31,7 @@ $v_contatos = $v_dados['contatos'];
             <tr> 
                 <td><?php echo $i->getNome(); ?></td>
                 <td><?php echo $i->getEmail(); ?></td>
-                <td>Ver Telefones</td>
+                <td><a href="?controle=telefone&metodo=listarTelefones&id_con=<?php echo $i->getId();?>">Ver Telefones</a></td>
                 <td><a href="?controle=contato&metodo=manterContatos&id_con=<?php echo $i->getId();?>">Alterar</a></td>
                 <td><a href="?controle=contato&metodo=deletarContato&id_con=<?php echo $i->getId();?>">Apagar</a></td>    
             </tr>
