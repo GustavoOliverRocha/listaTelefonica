@@ -11,7 +11,7 @@ class UsuarioController
     }
     public function logarUsuario()
     {
-        $o_view = new View("login.php");
+        $o_view = new View("Views/logarUsuario.phtml");
         if(session_status() == 2)
         {
             session_start();
@@ -53,7 +53,7 @@ class UsuarioController
             }
             else
             {
-                unset($_POST);
+                //unset($_POST);
                 echo "Campo não pode ficar vazio.";
                 $o_view->mostrarPagina(); 
             }

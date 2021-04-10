@@ -1,3 +1,9 @@
+<?php
+var_dump(session_status());
+$v_dados = $this->getDados();
+$v_contatos = $v_dados['contatos'];
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +13,7 @@
     <title>Lista de Contatos</title>
 </head>
 <body>
+    <nav><a href="?controle=usuario&metodo=deslogar">Deslogar</a></nav>
     <a href="registrarContatos.php">Inserir Contatos</a>
     <table style="border: 3px;">
         <thead>
@@ -17,13 +24,15 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td>...</td>
-                <td>...</td>
+            <?php foreach($v_contatos as $i) { ?>
+            <tr> 
+                <td><?php echo $i->getNome(); ?></td>
+                <td><?php echo $i->getEmail(); ?></td>
                 <td>Ver Telefones</td>
                 <td>Alterar</td>
-                <td>Apagar</td>
+                <td><a href="?controle=contato&metodo=deletarContato&id_con=<?php echo $i->getId();?>">Apagar</a></td>    
             </tr>
+            <?php } ?>
         </tbody>
     </table>
 </body>

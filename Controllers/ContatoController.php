@@ -14,7 +14,7 @@ class ContatoController
         if(isset($_SESSION['usuario'],$_SESSION['senha'],$_SESSION['id']))
         {
             $c = new Contato();
-            $v = new View("op.php");
+            $v = new View("Views/listarContatos.phtml");
             $vetor_con = $c->listar($_SESSION['id']);
  
             if(sizeof($vetor_con) > 0)
