@@ -160,3 +160,99 @@ Stack trace:
 #0 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
 #1 {main}
   thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 34
+<<<<<<< Updated upstream
+=======
+[10-Apr-2021 03:46:23 Europe/Berlin] PHP Fatal error:  Uncaught Exception: ERROR: Arquivo: Views/listarContaros.phtml não foi encontrado ou não existe. in C:\xampp\htdocs\listaTelefonica\Lib\View.php:51
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\View.php(18): View->setHtmlFile('Views/listarCon...')
+#1 C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php(17): View->__construct('Views/listarCon...')
+#2 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(49): ContatoController->listarContatos()
+#3 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#4 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\View.php on line 51
+[10-Apr-2021 05:43:36 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\listaTelefonica\Views\listarContatos.phtml on line 4
+[10-Apr-2021 05:43:36 Europe/Berlin] PHP Warning:  Invalid argument supplied for foreach() in C:\xampp\htdocs\listaTelefonica\Views\listarContatos.phtml on line 27
+[10-Apr-2021 05:50:07 Europe/Berlin] PHP Fatal error:  Uncaught Exception: Metodo manterContato não encontrado ou existente.   in C:\xampp\htdocs\listaTelefonica\Lib\Application.php:51
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#1 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 51
+[10-Apr-2021 06:08:42 Europe/Berlin] PHP Parse error:  syntax error, unexpected '}' in C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php on line 45
+[10-Apr-2021 06:16:01 Europe/Berlin] PHP Notice:  Undefined index: login in C:\xampp\htdocs\listaTelefonica\Views\listarContatos.phtml on line 20
+[10-Apr-2021 06:22:39 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\listaTelefonica\Views\registrarContatos.phtml on line 3
+[10-Apr-2021 06:24:28 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\listaTelefonica\Views\registrarContatos.phtml on line 3
+[10-Apr-2021 06:59:24 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\listaTelefonica\Views\registrarContatos.phtml on line 3
+[10-Apr-2021 07:00:17 Europe/Berlin] PHP Notice:  Undefined variable: vetor_con in C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php on line 47
+[10-Apr-2021 07:00:46 Europe/Berlin] PHP Notice:  Undefined variable: vetor_con in C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php on line 50
+[10-Apr-2021 07:02:15 Europe/Berlin] PHP Notice:  Undefined variable: vetor_con in C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php on line 47
+[10-Apr-2021 07:02:59 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\listaTelefonica\Views\registrarContatos.phtml on line 3
+[10-Apr-2021 07:03:53 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\listaTelefonica\Views\registrarContatos.phtml on line 3
+[10-Apr-2021 07:04:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\listaTelefonica\Views\registrarContatos.phtml on line 3
+[10-Apr-2021 07:04:08 Europe/Berlin] PHP Fatal error:  Uncaught Exception: Metodo manterContato?id_con=7/ não encontrado ou existente.   in C:\xampp\htdocs\listaTelefonica\Lib\Application.php:51
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#1 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 51
+[10-Apr-2021 07:04:14 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\listaTelefonica\Views\registrarContatos.phtml on line 3
+[10-Apr-2021 07:05:15 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\listaTelefonica\Views\registrarContatos.phtml on line 3
+[10-Apr-2021 07:05:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetchObject() on bool in C:\xampp\htdocs\listaTelefonica\Models\Contato.php:141
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php(36): Contato->loadById('7/')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(49): ContatoController->manterContato()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Contato.php on line 141
+[10-Apr-2021 07:07:02 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetchObject() on bool in C:\xampp\htdocs\listaTelefonica\Models\Contato.php:141
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php(36): Contato->loadById('7/')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(49): ContatoController->manterContato()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Contato.php on line 141
+[10-Apr-2021 07:08:08 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetchObject() on bool in C:\xampp\htdocs\listaTelefonica\Models\Contato.php:141
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php(36): Contato->loadById('7/')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(49): ContatoController->manterContato()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Contato.php on line 141
+[10-Apr-2021 07:08:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetchObject() on bool in C:\xampp\htdocs\listaTelefonica\Models\Contato.php:141
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php(36): Contato->loadById('7/')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(49): ContatoController->manterContato()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Contato.php on line 141
+[10-Apr-2021 07:10:14 Europe/Berlin] PHP Parse error:  syntax error, unexpected '}', expecting ';' or ',' in C:\xampp\htdocs\listaTelefonica\Models\Contato.php on line 145
+[10-Apr-2021 07:10:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetchObject() on bool in C:\xampp\htdocs\listaTelefonica\Models\Contato.php:141
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php(36): Contato->loadById('7/')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(49): ContatoController->manterContato()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Contato.php on line 141
+[10-Apr-2021 07:13:11 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetchObject() on bool in C:\xampp\htdocs\listaTelefonica\Models\Contato.php:141
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php(36): Contato->loadById('7/')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(49): ContatoController->manterContato()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Contato.php on line 141
+[10-Apr-2021 07:13:35 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetchObject() on bool in C:\xampp\htdocs\listaTelefonica\Models\Contato.php:141
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php(36): Contato->loadById('7/')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(49): ContatoController->manterContato()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Contato.php on line 141
+[10-Apr-2021 07:16:46 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\listaTelefonica\Views\registrarContatos.phtml on line 3
+[10-Apr-2021 07:16:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getNome() on null in C:\xampp\htdocs\listaTelefonica\Views\registrarContatos.phtml:13
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\View.php(32): require_once()
+#1 C:\xampp\htdocs\listaTelefonica\Lib\View.php(73): View->getConteudo()
+#2 C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php(50): View->mostrarPagina()
+#3 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(49): ContatoController->manterContato()
+#4 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#5 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Views\registrarContatos.phtml on line 13
+>>>>>>> Stashed changes

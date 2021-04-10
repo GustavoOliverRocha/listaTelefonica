@@ -63,12 +63,11 @@ class Usuario extends ConectaBanco
             //Assim pode ser usar isso para verificar se realmente houve inserção no banco
             if($this->conectar()->exec($st_query) > 0)
             {
-                echo "inserção com Sucesso";
+                echo "inserção com Sucesso  ".$this->conectar()->lastInsertId();
+                return true;
             }
             else
-            {
-                echo "ERROR: <br>0H 59 44 23 47 77";
-            }
+                return false;
             
         }
         catch(PDOException $e)

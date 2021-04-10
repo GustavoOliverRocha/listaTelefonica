@@ -41,21 +41,14 @@ class UsuarioController
                     return true;*/
                 }      
                 else
-                {
-                   /*var_dump($_POST['login']);
-                    var_dump($_POST['senha']);
-                    echo "SESSÕES: ".isset($_SESSION['login']);*/
-                    echo "Login errado";
-                    //$o_view->mostrarPagina(); 
-                    
-                }
+                    echo "Login errado";  
      
             }
             else
             {
                 unset($_POST);
                 echo "Campo não pode ficar vazio.";
-                $o_view->mostrarPagina(); 
+                //$o_view->mostrarPagina(); 
             }
         }
         $o_view->mostrarPagina(); 
@@ -80,20 +73,27 @@ class UsuarioController
 
     public function cadastrarUsuario()
     {
-        if(isset($_POST['login'], $_POST['senha']))
+        $o_view = new View("Views/cadastroUsuario.phtml");
+        if(isset($_POST['nm_usuario'], $_POST['senha_usuario'], $_POST['senha_confi']))
         {
             $u = new Usuario();
-            if(!$u->loadByUsuario($_POST['login']))
+            
+            if(isset($_REQUEST['id']))
+                $u->setId($_REQUEST['id']);
+
+            if(!$u->loadByUsuario($_POST['nm_usuario']))
             {
-                $u->setNome($_POST['login']);
-                $u->setSenha($_POST['senha']);
-                $u->save(); 
-            }
+                $u->setNome($_POST['nm_usuario']);
+                $u->setSenha($_POST['senha_usuario']);
+                if($u->save())
+                    Application::redirecionar("?controle=usuario&metodo=logarUsuario"); 
+            } 
             else
             {
                 echo "<h1>ERROR:</h1><br>Nome de Usuario Já existente";
             }
         }
+        $o_view->mostrarPagina();
     }
 
     /*public verificarLogin()

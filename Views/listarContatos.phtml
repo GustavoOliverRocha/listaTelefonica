@@ -1,0 +1,43 @@
+<?php
+var_dump(session_status());
+$v_dados = $this->getDados();
+$v_contatos = $v_dados['contatos'];
+
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Contatos</title>
+</head>
+<body>
+    <nav>
+        <a href="?controle=usuario&metodo=deslogar">Deslogar</a>
+        <a href='?controle=contato&metodo=manterContato'>Inserir Contatos</a>
+        <h4>Seja Bem Viado <?php echo $_SESSION['usuario']?></h4>
+    </nav>
+    
+    <table style="border: 3px;">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php if(sizeof($v_contatos) == 0){echo "Não há contatos registrados";}else{foreach($v_contatos as $i) { ?>
+            <tr> 
+                <td><?php echo $i->getNome(); ?></td>
+                <td><?php echo $i->getEmail(); ?></td>
+                <td>Ver Telefones</td>
+                <td><a href="?controle=contato&metodo=manterContato&id_con=<?php echo $i->getId();?>">Alterar</a></td>
+                <td><a href="?controle=contato&metodo=deletarContato&id_con=<?php echo $i->getId();?>">Apagar</a></td>    
+            </tr>
+            <?php }}?>
+        </tbody>
+    </table>
+</body>
+</html>

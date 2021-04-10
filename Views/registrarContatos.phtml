@@ -1,0 +1,20 @@
+<?php
+$v_dados = $this->getDados();
+$v_contatos = $v_dados['contatos'];
+//var_dump($v_contatos);
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registro de Contato</title>
+</head>
+<body>
+	<form method="POST">
+		Nome:<input type="text" name="nm_con"  value='<?php echo $v_contatos->getNome();?>'required /><br><br>
+		E-mail<input type="email" name="email_con" value='<?php echo $v_contatos->getEmail();?>' placeholder="youremail@example.com" required/><br><br>
+		<button type="submit">Confirmar</button>
+		<button type="reset">Redefinir</button>
+	</form>
+	<a href="?controle=contato&metodo=listarContatos">Voltar</a>
+</body>
+</html>

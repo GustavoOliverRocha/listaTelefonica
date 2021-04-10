@@ -16,15 +16,8 @@ class ContatoController
             $c = new Contato();
             $v = new View("op.php");
             $vetor_con = $c->listar($_SESSION['id']);
- 
-            if(sizeof($vetor_con) > 0)
-            {
-                $v->setDados(array("contatos" => $vetor_con));
-                $v->mostrarPagina();
-            }
-            else
-                echo "Não há contatos registrados";
-
+            $v->setDados(array("contatos" => $vetor_con));
+            $v->mostrarPagina();
         }
         else
         {
@@ -32,18 +25,26 @@ class ContatoController
         }
     } 
 
-    public function manterContatos()
-    {   $c= new Contato();
-        if(isset($_POST['nome_con'],$_POST['email_con']))
+    public function manterContato()
+    { 
+        $c= new Contato();
+        $v= new View("Views/registrarContatos.phtml");
+        if(isset($_SESSION['usuario'],$_SESSION['senha'],$_SESSION['id']))
         {
             if(isset($_REQUEST['id_con']))
-                $c->loadById($_REQUEST['id_con']);
-            $c->setNome($_POST['nome_con']);
-            $c->setEmail($_POST['email_con']);
-            if($c->save())
-                Application::redirecionar("?controle=contato&metodo=listarContatos");
-            
+                $c->loadById($_REQUEST['id_con']);  
+            if(isset($_POST['nm_con'],$_POST['email_con']))
+            {
+                $c->setNome($_POST['nm_con']);
+                $c->setEmail($_POST['email_con']);
+                $c->setUsuarioId($_SESSION['id']);
+                if($c->save())
+                    Application::redirecionar("?controle=contato&metodo=listarContatos");
+            }
         }
+        
+        $v->setDados(array("contatos" => $c));
+        $v->mostrarPagina();
     }
 
     public function deletarContato()

@@ -18,10 +18,19 @@ if(!isset($_SESSION['usuario'],$_SESSION['senha'],$_SESSION['id']))
 <body>
 
     <form method="POST">
+<<<<<<< Updated upstream:login.php
         Usuario: <input type="text" name='login'/><br><br>
         Senha: <input type="password" name='senha'/><br><br>
         <button type="submit">Logar</button>
     </form>]
     <a href="?controle=usuario&metodo=CadastrarUsuario"></a>
+=======
+        Nome: <input type="text" name="login"/><br><br>
+        Senha: <input type="password" name="senha"/><br><br>
+        <button type="submit">Entrar</button>
+    </form>
+    <br><br>
+    <a href="?controle=usuario&metodo=cadastrarUsuario">Cadastre-se</a>
+>>>>>>> Stashed changes:Views/logarUsuario.phtml
 </body>
 </html>
