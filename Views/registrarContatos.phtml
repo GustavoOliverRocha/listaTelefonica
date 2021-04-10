@@ -1,7 +1,8 @@
 <?php
+var_dump(session_status());
 $v_dados = $this->getDados();
 $v_contatos = $v_dados['contatos'];
-//var_dump($v_contatos);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,7 +11,7 @@ $v_contatos = $v_dados['contatos'];
 </head>
 <body>
 	<form method="POST">
-		Nome:<input type="text" name="nm_con"  value='<?php echo $v_contatos->getNome();?>'required /><br><br>
+		Nome:<input type="text" name="nm_con" value='<?php echo $v_contatos->getNome();?>' required /><br><br>
 		E-mail<input type="email" name="email_con" value='<?php echo $v_contatos->getEmail();?>' placeholder="youremail@example.com" required/><br><br>
 		<button type="submit">Confirmar</button>
 		<button type="reset">Redefinir</button>

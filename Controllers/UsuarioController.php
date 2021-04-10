@@ -4,14 +4,10 @@ require_once "./Lib/View.php";
 
 class UsuarioController
 {
-    private $erros;
-    function __construct()
-    {
-        $this->erros = false;
-    }
+
     public function logarUsuario()
     {
-        $o_view = new View("login.php");
+        $o_view = new View("Views/logarUsuario.phtml");
         if(session_status() == 2)
         {
             session_start();
@@ -33,22 +29,15 @@ class UsuarioController
                     $_SESSION['id'] = $u->getId();
                     $_SESSION['usuario'] = $u->getNome();
                     $_SESSION['senha'] = $u->getSenha();
-                    //header("Location: ?controle=contato&metodo=listarContatos");
                     Application::redirecionar("?controle=contato&metodo=listarContatos");
-                    /*echo "Bem Viado ".$_SESSION['usuario']."<br>";
-                    echo "Seu Id é: ".$_SESSION['id']."<br>";
-                    echo "E sua senha é: ".$_SESSION['senha']."<br>";
-                    return true;*/
                 }      
                 else
-                    echo "Login errado";  
+                    echo "Login errado";
      
             }
             else
             {
-                unset($_POST);
                 echo "Campo não pode ficar vazio.";
-                //$o_view->mostrarPagina(); 
             }
         }
         $o_view->mostrarPagina(); 

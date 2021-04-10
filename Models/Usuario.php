@@ -62,13 +62,9 @@ class Usuario extends ConectaBanco
             //A função exec alem de executar comando SQL ela também retorna o numero de linhas afetadas
             //Assim pode ser usar isso para verificar se realmente houve inserção no banco
             if($this->conectar()->exec($st_query) > 0)
-            {
-                echo "inserção com Sucesso  ".$this->conectar()->lastInsertId();
                 return true;
-            }
-            else
+            else    
                 return false;
-            
         }
         catch(PDOException $e)
         {

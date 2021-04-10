@@ -14,25 +14,24 @@ class ContatoController
         if(isset($_SESSION['usuario'],$_SESSION['senha'],$_SESSION['id']))
         {
             $c = new Contato();
-            $v = new View("op.php");
-            $vetor_con = $c->listar($_SESSION['id']);
-            $v->setDados(array("contatos" => $vetor_con));
-            $v->mostrarPagina();
+            $v = new View("Views/listarContatos.phtml");
+            $v->setDados(array("contatos" => $c->listar($_SESSION['id'])));
         }
         else
-        {
             echo "ERROR: Você não está logado fi";
-        }
+        $v->mostrarPagina();
     } 
 
-    public function manterContato()
-    { 
+    public function manterContatos()
+    {   
         $c= new Contato();
         $v= new View("Views/registrarContatos.phtml");
+        
+        if(isset($_REQUEST['id_con']))
+            $c->loadById($_REQUEST['id_con']);
+
         if(isset($_SESSION['usuario'],$_SESSION['senha'],$_SESSION['id']))
         {
-            if(isset($_REQUEST['id_con']))
-                $c->loadById($_REQUEST['id_con']);  
             if(isset($_POST['nm_con'],$_POST['email_con']))
             {
                 $c->setNome($_POST['nm_con']);
@@ -40,9 +39,10 @@ class ContatoController
                 $c->setUsuarioId($_SESSION['id']);
                 if($c->save())
                     Application::redirecionar("?controle=contato&metodo=listarContatos");
+                else    
+                    echo "ERROR";
             }
         }
-        
         $v->setDados(array("contatos" => $c));
         $v->mostrarPagina();
     }
