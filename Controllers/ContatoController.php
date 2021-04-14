@@ -1,6 +1,8 @@
 <?php
 require_once "./Models/Contato.php";
+require_once "./Models/Telefone.php";
 require_once "./Lib/View.php";
+
 /**
  * Tirando o UsuarioController todas as classes controllers
  * começarão com o session_start() para carregar os dados do login
@@ -11,14 +13,15 @@ class ContatoController
 {
     public function listarContatos()
     {  
-        if(isset($_SESSION['usuario'],$_SESSION['senha'],$_SESSION['id']))
+        if(Validador::isLogado())
         {
             $c = new Contato();
             $v = new View("Views/listarContatos.phtml");
             $v->setDados(array("contatos" => $c->listar($_SESSION['id'])));
         }
         else
-            echo "ERROR: Você não está logado fi";
+            exit("ERROR: Você não está logado fi ".$_GET['metodo']);
+            
         $v->mostrarPagina();
     } 
 
@@ -26,23 +29,32 @@ class ContatoController
     {   
         $c= new Contato();
         $v= new View("Views/registrarContatos.phtml");
-        
-        if(isset($_REQUEST['id_con']))
-            $c->loadById($_REQUEST['id_con']);
+        if(!Validador::isLogado())
+            exit("ERROR: Você não está logado fi ".$_GET['metodo']);
 
-        if(isset($_SESSION['usuario'],$_SESSION['senha'],$_SESSION['id']))
+        if(isset($_REQUEST['id_con']))
+            $c->loadById($_REQUEST['id_con'],$_SESSION['id']);
+
+        if(Validador::isLogado())
         {
             if(isset($_POST['nm_con'],$_POST['email_con']))
             {
-                $c->setNome($_POST['nm_con']);
-                $c->setEmail($_POST['email_con']);
-                $c->setUsuarioId($_SESSION['id']);
-                if($c->save())
-                    Application::redirecionar("?controle=contato&metodo=listarContatos");
-                else    
-                    echo "ERROR";
+                if(strlen($_POST['nm_con']) > 0 && strlen($_POST['email_con']) > 0)
+                {
+                    $c->setNome($_POST['nm_con']);
+                    $c->setEmail($_POST['email_con']);
+                    $c->setUsuarioId($_SESSION['id']);
+                    if($c->save())
+                        Application::redirecionar("?controle=contato&metodo=listarContatos");
+                    else    
+                        exit("ERROR: no método ".$_GET['metodo']);
+                }
+                else
+                    echo "Campo não pode ficar vazio";
+                
             }
         }
+            
         $v->setDados(array("contatos" => $c));
         $v->mostrarPagina();
     }
@@ -50,13 +62,20 @@ class ContatoController
     public function deletarContato()
     {
         $c= new Contato();
+        $t= new Telefone();
         if(isset($_REQUEST['id_con']))
         {
-            $c->loadById($_REQUEST['id_con']);
+            $v_tel = $t->listar($_REQUEST['id_con']);
+
+            foreach($v_tel as $t)
+                $t->deletar();
+
+            $c->loadById($_REQUEST['id_con'],$_SESSION['id']);
+            
             if($c->deletar())
                 Application::redirecionar("?controle=contato&metodo=listarContatos");
             else    
-                echo "ERROR: 87 HG 55F 2DS";
+                exit("ERROR: no método ".$_GET['metodo']);
         }
 
     }

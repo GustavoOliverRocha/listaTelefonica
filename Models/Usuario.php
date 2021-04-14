@@ -6,12 +6,6 @@ class Usuario extends ConectaBanco
     private $st_nome;
     private $st_senha;
 
-    /*function __construct($id,$nm,$se)
-    {
-        $this->id_usuario = $id;
-        $this->st_nome = $nm;
-        $this->setSenha($se);
-    }*/
     function __construct()
     {
 
@@ -36,11 +30,11 @@ class Usuario extends ConectaBanco
 
     public function getSenha()
     {
-        return sha1($this->st_senha,true);
+        return $this->st_senha;
     }
     public function setSenha($s)
     {
-        $this->st_senha =$s;
+        $this->st_senha = sha1($s,true);
     }
     /**
      * Metodo de Criar e Alterar
@@ -50,13 +44,9 @@ class Usuario extends ConectaBanco
     public function save()
     {
         if(is_null($this->id_usuario))
-        {
             $st_query = "INSERT INTO tb_usuario(nm_usuario,pw_usuario)VALUES('".$this->st_nome."','".$this->getSenha()."')";
-        }
         else
-        {
             $st_query = "UPDATE tb_usuario SET nm_usuario = '$this->st_nome',pw_usuario = '".$this->getSenha()."' WHERE cd_usuario = $this->id_usuario;";
-        }
         try
         {
             //A função exec alem de executar comando SQL ela também retorna o numero de linhas afetadas
@@ -81,9 +71,17 @@ class Usuario extends ConectaBanco
     {
         if(!is_null($this->id_usuario))
         {
-            $st_query = "DELETE FROM tb_usuario WHERE cd_usuario = $this->id_usuario";
-            if($this->conectar()->exec($st_query) > 0)
-                return true;
+            try
+            {
+                $st_query = "DELETE FROM tb_usuario WHERE cd_usuario = $this->id_usuario";
+                if($this->conectar()->exec($st_query) > 0)
+                    return true;
+            }
+            catch(PDOException $error)
+            {
+                echo "ERROR: ".$error->getMessage();
+            }
+            
         }
         return false;
     }
@@ -143,7 +141,7 @@ class Usuario extends ConectaBanco
         }
         catch(PDOException $error)
 		{
-            echo "ERROR: ";
+            echo "ERROR: ".$error->getMessage();
         }
         return false;
     }
@@ -156,18 +154,13 @@ class Usuario extends ConectaBanco
             $dados = $this->conectar()->query($st_query);
             $retorno = $dados->fetchObject();
             if(!$retorno)
-            {
                 return false;
-            }
             else
-            {
                 return true;
-            }
-
         }
         catch(PDOException $error)
 		{
-            echo "ERROR: ";
+            echo "ERROR: ".$error->getMessage();
         }
         return false;
     }

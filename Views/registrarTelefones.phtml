@@ -1,7 +1,8 @@
 <?php
 var_dump(session_status());
 $v_dados = $this->getDados();
-$v_contatos = $v_dados['contatos'];
+$v_tel = $v_dados['telefone'];
+$v_con = $v_dados['contato'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -9,16 +10,18 @@ $v_contatos = $v_dados['contatos'];
 	<title>Registrar Telefone</title>
 </head>
 <body>
-	<form>
-		Numero de Telefone<input type="text" name="nr_tel" placeholder="(xxx)xxxx-xxxx" /><br><br>
+	<form method="POST">
+		DDD<input type="text" name="ddd_tel" placeholder="(xxx)" value="<?php echo $v_tel->getDdd();?>" required/>
+		Numero de Telefone<input type="text" name="nr_tel" placeholder="xxxx-xxxx" value="<?php echo $v_tel->getNum();?>"required/><br><br>
 		Tipo:
 		<select name="tp_tel">
-			<option value="fixo">Fixo</option>
-			<option value="fixo">Celular</option>
-			<option value="fixo">Comercial</option>
+			<option selected="selected" value="<?php echo $v_tel->getTipo();?>"><?php echo $v_tel->getTipo();?></option>
+			<option value="Fixo">Fixo</option>
+			<option value="Celular">Celular</option>
+			<option value="Comercial">Comercial</option>
 		</select><br><br>
 		<button type="submit">Confirmar</button>
 	</form>
-	<a href="listarTelefone.php">Voltar</a>
+	<a href="?controle=telefone&metodo=listarTelefones&id_con=<?php echo $v_con->getId();?>">Voltar</a>
 </body>
 </html>

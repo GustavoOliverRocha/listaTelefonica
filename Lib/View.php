@@ -12,11 +12,10 @@ class View
      * O construtor receberá o nome do arquivo HTML a ser renderizado
      * que atribuirá ao atributos $htmlFile
      */
-    function __construct($html = null/*, $v_dados = null*/)
+    function __construct($html = null)
     {
         if($html != null)
             $this->setHtmlFile($html);
-        //$this->dados = $v_dados;
     }
 
     /**
@@ -28,12 +27,11 @@ class View
     public function getConteudo()
     {
         ob_start();
-        if(isset($this->htmlFile))
-            require_once $this->htmlFile;
-        $this->conteudo = ob_get_contents();
+            if(isset($this->htmlFile))
+                require_once $this->htmlFile;
+            $this->conteudo = ob_get_contents();
         ob_end_clean();
         return $this->conteudo;
-        
     }
 
     public function getHtmlFile()
@@ -45,14 +43,14 @@ class View
     {
         if(file_exists($html))
             $this->htmlFile = $html;
-        else if(file_exists("pagina404.phtml"))
-            $this->htmlFile = "pagina404.phtml"; 
+        else if(file_exists("Views/pagina404.phtml"))
+            $this->htmlFile = "Views/pagina404.phtml"; 
         else
             throw new Exception("ERROR: Arquivo: $html não foi encontrado ou não existe.");
             
     }
     /**
-     * getDados() vai conter os dados do Controller
+     * getDados() vai conter os dados(array/vetor) enviados pelo Controller
      */
     public function getDados()
     {

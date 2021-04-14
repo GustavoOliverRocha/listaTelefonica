@@ -1,4 +1,6 @@
 <?php
+if(file_exists("Lib/Validador.php"))
+    require_once "Lib/Validador.php";
 
 class Application
 {
@@ -12,12 +14,12 @@ class Application
      * servirá para capturar o nome do Controller e o Metodo que serão passados na URL
      * via GET
      */
-    public function rota()
+    private function rota()
     {
         /**
          * Operador ternario- condição ?(então) coisa :(senão) outra coisa
-         * Se a variavel $_REQUEST['controle'] for setada pela URL
-         * então ela será igual a $_REQUEST['controle'] senão será igual a index
+         * Se a variavel $_REQUEST['controle'] for setada pela URL(true)
+         * então ela será igual a $_REQUEST['controle'] senão será igual a 'index'
          */
         $this->rotaController = isset($_REQUEST['controle']) ? $_REQUEST['controle'] : 'index';
         $this->rotaMetodo = isset($_REQUEST['metodo']) ? $_REQUEST['metodo'] : 'indexRedirect';
@@ -38,20 +40,29 @@ class Application
         if(file_exists($controllerFile))
             require_once $controllerFile;
         else   
-            throw new Exception("Arquivo $controllerFile não encontrado ou existente.  ");
+            $this->err404("Arquivo $controllerFile não encontrado ou existente.");//throw new Exception("Arquivo $controllerFile não encontrado ou existente.");
 
         if(class_exists($classe))
             $c = new $classe;
         else   
-            throw new Exception("Classe $classe não encontrada ou existente.  ");
+            $this->err404("Classe $classe não encontrada ou existente.");//throw new Exception("Classe $classe não encontrada ou existente.  ");
         
         if(method_exists($classe,$metodo))
             $c->$metodo();
         else
-            throw new Exception("Metodo $metodo não encontrado ou existente.  ");
+            $this->err404("Metodo $metodo não encontrado ou existente.");//throw new Exception("Metodo $metodo não encontrado ou existente.");
 
     }
     
+    public function err404($msg)
+    {
+        if(file_exists("./Lib/View.php"))
+            require_once "./Lib/View.php";
+        $v = new View("Views/pagina404.phtml");
+        echo $msg;
+        $v->mostrarPagina();
+    }
+
     public function redirecionar($url)
     {
         header("Location: $url");

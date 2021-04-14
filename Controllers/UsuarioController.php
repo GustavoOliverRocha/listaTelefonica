@@ -1,17 +1,15 @@
 <?php
 require_once './Models/Usuario.php';
 require_once "./Lib/View.php";
-
 class UsuarioController
 {
-
     public function logarUsuario()
     {
         $o_view = new View("Views/logarUsuario.phtml");
         if(session_status() == 2)
         {
             session_start();
-            if(isset($_SESSION['usuario'],$_SESSION['senha'],$_SESSION['id']))
+            if(Validador::isLogado())
                 Application::redirecionar("?controle=contato&metodo=listarContatos");
             else
                 deslogar();
@@ -33,18 +31,15 @@ class UsuarioController
                 }      
                 else
                     echo "Login errado";
-     
             }
             else
-            {
                 echo "Campo não pode ficar vazio.";
-            }
         }
         $o_view->mostrarPagina(); 
     }
     /**
      * Dica: sempre que for destruir uma sessão sempre inicia ela pois caso o contrario ele poderá destruir uma
-     * sessão que nem existe
+     * sessão que nem existe e dar erro
      */
     public function deslogar()
     {
@@ -52,42 +47,43 @@ class UsuarioController
         session_unset();
         session_destroy();
         session_register_shutdown ( );
-        if(!isset($_SESSION['usuario'],$_SESSION['senha'],$_SESSION['id']) && session_status()==1)
-        {
+        if(!Validador::isLogado() && session_status()==1)
             Application::redirecionar("index.php");
-        }
         else    
-            echo "ERROR: não deslogou as sessões estão".isset($_SESSION['usuario'],$_SESSION['senha'],$_SESSION['id'])."<br>".var_dump(session_status());
+            exit("ERROR: não deslogou as sessões estão".isset($_SESSION['usuario'],$_SESSION['senha'],$_SESSION['id'])."<br>".var_dump(session_status()));
     }   
 
     public function cadastrarUsuario()
     {
         $o_view = new View("Views/cadastroUsuario.phtml");
-        if(isset($_POST['nm_usuario'], $_POST['senha_usuario'], $_POST['senha_confi']))
+        if(count($_POST) > 0)
         {
-            $u = new Usuario();
+            if(strlen($_POST['u_nome']) > 0 && strlen($_POST['u_senha']) > 0 && strlen($_POST['c_senha']) > 0)
+            {
+                if(strcmp($_POST['u_senha'],$_POST['c_senha']) == 0)
+                {
+                    $u = new Usuario();
             
-            if(isset($_REQUEST['id']))
-                $u->setId($_REQUEST['id']);
-
-            if(!$u->loadByUsuario($_POST['nm_usuario']))
-            {
-                $u->setNome($_POST['nm_usuario']);
-                $u->setSenha($_POST['senha_usuario']);
-                if($u->save())
-                    Application::redirecionar("?controle=usuario&metodo=logarUsuario"); 
-            } 
-            else
-            {
-                echo "<h1>ERROR:</h1><br>Nome de Usuario Já existente";
+                    if(isset($_REQUEST['id']))
+                        $u->setId($_REQUEST['id']);
+    
+                    if(!$u->loadByUsuario($_POST['u_nome']))
+                    {
+                        $u->setNome($_POST['u_nome']);
+                        $u->setSenha($_POST['u_senha']);
+                        if($u->save())
+                            Application::redirecionar("?controle=usuario&metodo=logarUsuario"); 
+                    } 
+                    else
+                        echo "Nome de Usuario Já existente";
+                }
+                else
+                    echo "Senhas não batem";
             }
+            else
+                echo "Campo não pode ficar vazio";
         }
         $o_view->mostrarPagina();
     }
-
-    /*public verificarLogin()
-    {
-        //if(isset($_REQUEST[]))
-    }*/
 }
 ?>

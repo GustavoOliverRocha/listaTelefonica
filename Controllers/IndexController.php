@@ -10,13 +10,13 @@ class IndexController
     public function indexRedirect()
     {
         session_start();
-        if(isset($_SESSION['usuario'],$_SESSION['senha'],$_SESSION['id']))
-            header("Location: ?controle=contato&metodo=listarContatos");
+        if(Validador::isLogado())
+            Application::redirecionar("?controle=contato&metodo=listarContatos");
         else
         {
             session_unset();
             session_destroy();
-            header("Location: ?controle=usuario&metodo=logarUsuario");
+            Application::redirecionar("?controle=usuario&metodo=logarUsuario");
         }
 
     }

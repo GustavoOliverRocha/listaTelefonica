@@ -3,6 +3,7 @@
 var_dump(session_status());
 $v_dados = $this->getDados();
 $v_tel = $v_dados['telefones'];
+$v_con = $v_dados['contato'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -10,7 +11,7 @@ $v_tel = $v_dados['telefones'];
 	<title>Lista Telefonica</title>
 </head>
 <body>
-	<a href="?controle=telefone&metodo=manterTelefone">Inserir Telefone</a>
+	<a href="?controle=telefone&metodo=manterTelefone&id_con=<?php echo $v_con->getId(); ?>">Inserir Telefone</a>
 	<a href="?controle=contato&metodo=listarContatos">Voltar</a>
 	<table>
 		<thead>
@@ -25,8 +26,8 @@ $v_tel = $v_dados['telefones'];
 			<tr>
 				<td><?php echo "(".$i->getDdd().")".$i->getNum();?></td>
 				<td><?php echo $i->getTipo();?></td>
-                <td><a href="?controle=telefone&metodo=manterTelefone&tel_id=<?php $i->getId();?>">Alterar</a></td>
-                <td><a href="?controle=telefone&metodo=deleterTelefone&tel_id=<?php $i->getId();?>">Apagar</a></td>
+                <td><a href="?controle=telefone&metodo=manterTelefone&id_con=<?php echo $v_con->getId();?>&id_tel=<?php echo $i->getId(); ?>">Alterar</a></td>
+                <td><a href="?controle=telefone&metodo=deletarTelefone&id_con=<?php echo $v_con->getId();?>&id_tel=<?php echo $i->getId(); ?>">Apagar</a></td>
 			</tr>
 			<?php } ?>
 		</tbody>

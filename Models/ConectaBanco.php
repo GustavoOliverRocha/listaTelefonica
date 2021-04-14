@@ -28,7 +28,7 @@ abstract class ConectaBanco
         }
         catch(PDOException $error)
         {
-            echo "ERROR: Conexão falhou<br>" . $error->getMessage();
+            echo "ERROR: Conexão falhou <br>" . $error->getMessage();
         }
     }
 }

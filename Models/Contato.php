@@ -75,20 +75,14 @@ class Contato extends ConectaBanco
              * Assim pode-se usar isso para verificar se realmente houve inserção no banco
              */
             if($this->conectar()->exec($st_query) > 0)
-            {
-                echo "Criação/Atualização do Contato Sucesso";
                 return true;
-            }
             else
-            {
-                echo "ERROR: <br>0H 59 44 23 47 77";
                 return false;
-            }
             
         }
-        catch(PDOException $e)
+        catch(PDOException $error)
         {
-            echo "ERROR: <br>".$e->getMessage();
+            echo "ERROR: <br>".$error->getMessage();
         } 
         return false;
     }
@@ -100,7 +94,7 @@ class Contato extends ConectaBanco
      */
     public function listar($id)
     {
-        //Vetor Usuarios
+        //Vetor Contatos
         $v_contatos = [];
         $st_query = "SELECT * FROM tb_contato WHERE fk_cd_usuario = $id"; 
 
@@ -122,7 +116,9 @@ class Contato extends ConectaBanco
             }   
         }
         catch(PDOException $error)
-		{}
+		{
+            echo "ERROR: <br>".$error->getMessage();
+        }
         return $v_contatos;
     }
 
@@ -131,22 +127,28 @@ class Contato extends ConectaBanco
      * essa função vai servir para carregar os dados de um contato em especifico
      * muito util para fazer deletes e...
      */
-    public function loadById($id)
+    public function loadById($id,$u_id)
     {
-        //$v_contatos = [];
-        $st_query = "SELECT * FROM tb_contato WHERE cd_contato = $id";
+        $st_query = "SELECT * FROM tb_contato WHERE cd_contato = $id and fk_cd_usuario = $u_id";
         try
         {
             $dados = $this->conectar()->query($st_query);
             $retorno = $dados->fetchObject();
-            $this->setId($retorno->cd_contato);
-            $this->setNome($retorno->nm_contato);
-            $this->setEmail($retorno->nm_email);
-            return $this; 
+            if(!$retorno)
+            {
+                return false;
+            }
+            else
+            {
+                $this->setId($retorno->cd_contato);
+                $this->setNome($retorno->nm_contato);
+                $this->setEmail($retorno->nm_email);
+                return $this; 
+            }
         }
         catch(PDOException $error)
 		{
-            echo "ERROR: ";
+            echo "ERROR: <br>".$error->getMessage();
         }
         return false;
     }
@@ -154,13 +156,20 @@ class Contato extends ConectaBanco
 
     public function deletar()
     {
+        $st_query = "DELETE FROM tb_contato WHERE cd_contato = $this->id_contato;";
         if(!is_null($this->id_contato))
         {
-            $st_query = "DELETE FROM tb_contato WHERE cd_contato = $this->id_contato;";
-            if($this->conectar()->exec($st_query) > 0)
-                return true;
+            try
+            { 
+                if($this->conectar()->exec($st_query) > 0)
+                    return true;
+            }
+            catch(PDOException $error)
+            {
+                echo "ERROR: <br>".$error->getMessage();
+            }
+            
         }
-        //echo "ERROR: 87 HG 55F 2DS";
         return false;
     }
 

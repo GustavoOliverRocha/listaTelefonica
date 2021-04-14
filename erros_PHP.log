@@ -240,3 +240,244 @@ Stack trace:
 #0 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
 #1 {main}
   thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 51
+[13-Apr-2021 05:17:41 Europe/Berlin] PHP Fatal error:  Uncaught Exception: Metodo manterTelefone não encontrado ou existente.   in C:\xampp\htdocs\listaTelefonica\Lib\Application.php:51
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#1 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 51
+[13-Apr-2021 05:17:53 Europe/Berlin] PHP Fatal error:  Uncaught Exception: Metodo manterTelefone não encontrado ou existente.   in C:\xampp\htdocs\listaTelefonica\Lib\Application.php:51
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#1 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 51
+[13-Apr-2021 05:18:09 Europe/Berlin] PHP Notice:  Undefined index: contatos in C:\xampp\htdocs\listaTelefonica\Views\registrarTelefones.phtml on line 4
+[13-Apr-2021 05:20:12 Europe/Berlin] PHP Fatal error:  Uncaught Exception: Metodo deleterTelefone não encontrado ou existente.   in C:\xampp\htdocs\listaTelefonica\Lib\Application.php:51
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#1 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 51
+[13-Apr-2021 05:21:53 Europe/Berlin] PHP Notice:  Undefined variable: c in C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php on line 53
+[13-Apr-2021 05:21:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function loadById() on null in C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php:53
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(49): TelefoneController->deletarTelefone()
+#1 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#2 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php on line 53
+[13-Apr-2021 05:24:27 Europe/Berlin] PHP Notice:  Undefined index: id_con in C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php on line 55
+[13-Apr-2021 05:24:27 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetchObject() on bool in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php:104
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php(15): Telefone->listar('')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(49): TelefoneController->listarTelefones()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 104
+[13-Apr-2021 05:26:02 Europe/Berlin] PHP Notice:  Trying to get property 'cd_tel' of non-object in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 127
+[13-Apr-2021 05:26:02 Europe/Berlin] PHP Notice:  Trying to get property 'ddd_tel' of non-object in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 128
+[13-Apr-2021 05:26:02 Europe/Berlin] PHP Notice:  Trying to get property 'nr_tel' of non-object in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 129
+[13-Apr-2021 05:26:02 Europe/Berlin] PHP Notice:  Trying to get property 'tp_tel' of non-object in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 130
+[13-Apr-2021 05:30:08 Europe/Berlin] PHP Notice:  Trying to get property 'cd_tel' of non-object in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 127
+[13-Apr-2021 05:30:08 Europe/Berlin] PHP Notice:  Trying to get property 'ddd_tel' of non-object in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 128
+[13-Apr-2021 05:30:08 Europe/Berlin] PHP Notice:  Trying to get property 'nr_tel' of non-object in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 129
+[13-Apr-2021 05:30:08 Europe/Berlin] PHP Notice:  Trying to get property 'tp_tel' of non-object in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 130
+[13-Apr-2021 05:45:57 Europe/Berlin] PHP Notice:  Trying to get property 'cd_tel' of non-object in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 127
+[13-Apr-2021 05:45:57 Europe/Berlin] PHP Notice:  Trying to get property 'ddd_tel' of non-object in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 128
+[13-Apr-2021 05:45:57 Europe/Berlin] PHP Notice:  Trying to get property 'nr_tel' of non-object in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 129
+[13-Apr-2021 05:45:57 Europe/Berlin] PHP Notice:  Trying to get property 'tp_tel' of non-object in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 130
+[13-Apr-2021 05:46:24 Europe/Berlin] PHP Notice:  Trying to get property 'cd_tel' of non-object in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 127
+[13-Apr-2021 05:46:24 Europe/Berlin] PHP Notice:  Trying to get property 'ddd_tel' of non-object in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 128
+[13-Apr-2021 05:46:24 Europe/Berlin] PHP Notice:  Trying to get property 'nr_tel' of non-object in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 129
+[13-Apr-2021 05:46:24 Europe/Berlin] PHP Notice:  Trying to get property 'tp_tel' of non-object in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 130
+[13-Apr-2021 05:59:02 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'echo' (T_ECHO), expecting '{' in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 141
+[13-Apr-2021 06:30:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Telefone' not found in C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php:54
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(49): ContatoController->deletarContato()
+#1 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#2 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php on line 54
+[13-Apr-2021 09:55:45 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Validador' not found in C:\xampp\htdocs\listaTelefonica\teste.php:5
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\teste.php on line 5
+[13-Apr-2021 09:58:50 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Validador' not found in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php:22
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(49): UsuarioController->logarUsuario()
+#1 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#2 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php on line 22
+[13-Apr-2021 10:18:50 Europe/Berlin] PHP Parse error:  syntax error, unexpected ')' in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php on line 21
+[13-Apr-2021 10:37:24 Europe/Berlin] PHP Notice:  Undefined index: nm_usuario in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php on line 74
+[13-Apr-2021 10:37:24 Europe/Berlin] PHP Notice:  Undefined index: nm_usuario in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php on line 76
+[13-Apr-2021 10:37:24 Europe/Berlin] PHP Notice:  Undefined index: senha_usuario in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php on line 77
+[13-Apr-2021 10:37:55 Europe/Berlin] PHP Notice:  Undefined index: nm_usuario in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php on line 74
+[13-Apr-2021 10:46:00 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Contato::loadById(), 1 passed in C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php on line 32 and exactly 2 expected in C:\xampp\htdocs\listaTelefonica\Models\Contato.php:134
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php(32): Contato->loadById('11')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(49): ContatoController->manterContatos()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Contato.php on line 134
+[14-Apr-2021 01:54:49 Europe/Berlin] PHP Warning:  require_once(Controllers/Validador.php): failed to open stream: No such file or directory in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php on line 4
+[14-Apr-2021 01:54:49 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required 'Controllers/Validador.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php on line 4
+[14-Apr-2021 02:32:36 Europe/Berlin] PHP Fatal error:  Uncaught Exception: ERROR: Você não está logado fi listarContatos in C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php:22
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(50): ContatoController->listarContatos()
+#1 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#2 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php on line 22
+[14-Apr-2021 02:33:39 Europe/Berlin] PHP Fatal error:  Uncaught Exception: Metodo mantarContato não encontrado ou existente.   in C:\xampp\htdocs\listaTelefonica\Lib\Application.php:52
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#1 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 52
+[14-Apr-2021 02:33:44 Europe/Berlin] PHP Fatal error:  Uncaught Exception: Metodo mantarContatos não encontrado ou existente.   in C:\xampp\htdocs\listaTelefonica\Lib\Application.php:52
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#1 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 52
+[14-Apr-2021 02:34:00 Europe/Berlin] PHP Fatal error:  Uncaught Exception: ERROR: Você não está logado fi manterContatos in C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php:54
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(50): ContatoController->manterContatos()
+#1 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#2 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php on line 54
+[14-Apr-2021 02:44:21 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Contato::loadById(), 1 passed in C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php on line 33 and exactly 2 expected in C:\xampp\htdocs\listaTelefonica\Models\Contato.php:134
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php(33): Contato->loadById('20')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(50): ContatoController->manterContatos()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Contato.php on line 134
+[14-Apr-2021 03:10:59 Europe/Berlin] PHP Notice:  Undefined index: id_con in C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php on line 40
+[14-Apr-2021 03:28:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Contato' not found in C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php:26
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(50): TelefoneController->manterTelefone()
+#1 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#2 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php on line 26
+[14-Apr-2021 03:29:54 Europe/Berlin] PHP Notice:  Undefined index: contato in C:\xampp\htdocs\listaTelefonica\Views\registrarTelefones.phtml on line 5
+[14-Apr-2021 03:29:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on null in C:\xampp\htdocs\listaTelefonica\Views\registrarTelefones.phtml:24
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\View.php(32): require_once()
+#1 C:\xampp\htdocs\listaTelefonica\Lib\View.php(73): View->getConteudo()
+#2 C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php(59): View->mostrarPagina()
+#3 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(50): TelefoneController->manterTelefone()
+#4 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#5 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Views\registrarTelefones.phtml on line 24
+[14-Apr-2021 03:31:31 Europe/Berlin] PHP Notice:  Undefined index: contato in C:\xampp\htdocs\listaTelefonica\Views\registrarTelefones.phtml on line 5
+[14-Apr-2021 03:31:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on null in C:\xampp\htdocs\listaTelefonica\Views\registrarTelefones.phtml:24
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\View.php(32): require_once()
+#1 C:\xampp\htdocs\listaTelefonica\Lib\View.php(73): View->getConteudo()
+#2 C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php(59): View->mostrarPagina()
+#3 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(50): TelefoneController->manterTelefone()
+#4 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#5 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Views\registrarTelefones.phtml on line 24
+[14-Apr-2021 03:33:35 Europe/Berlin] PHP Notice:  Undefined index: contato in C:\xampp\htdocs\listaTelefonica\Views\listarTelefones.phtml on line 6
+[14-Apr-2021 03:36:00 Europe/Berlin] PHP Notice:  Undefined index: contato in C:\xampp\htdocs\listaTelefonica\Views\listarTelefones.phtml on line 6
+[14-Apr-2021 03:36:26 Europe/Berlin] PHP Notice:  Undefined index: contato in C:\xampp\htdocs\listaTelefonica\Views\listarTelefones.phtml on line 6
+[14-Apr-2021 03:40:25 Europe/Berlin] PHP Notice:  Undefined index: contato in C:\xampp\htdocs\listaTelefonica\Views\registrarTelefones.phtml on line 5
+[14-Apr-2021 03:40:25 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getId() on null in C:\xampp\htdocs\listaTelefonica\Views\registrarTelefones.phtml:24
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\View.php(32): require_once()
+#1 C:\xampp\htdocs\listaTelefonica\Lib\View.php(73): View->getConteudo()
+#2 C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php(60): View->mostrarPagina()
+#3 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(50): TelefoneController->manterTelefone()
+#4 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#5 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Views\registrarTelefones.phtml on line 24
+[14-Apr-2021 03:42:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetchObject() on bool in C:\xampp\htdocs\listaTelefonica\Models\Contato.php:141
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php(14): Contato->loadById('', '3')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(50): TelefoneController->listarTelefones()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Contato.php on line 141
+[14-Apr-2021 03:43:48 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetchObject() on bool in C:\xampp\htdocs\listaTelefonica\Models\Contato.php:141
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php(14): Contato->loadById('', '3')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(50): TelefoneController->listarTelefones()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Contato.php on line 141
+[14-Apr-2021 03:43:50 Europe/Berlin] PHP Fatal error:  Uncaught Exception: Metodo indexRedirect não encontrado ou existente.   in C:\xampp\htdocs\listaTelefonica\Lib\Application.php:52
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#1 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 52
+[14-Apr-2021 03:46:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetchObject() on bool in C:\xampp\htdocs\listaTelefonica\Models\Contato.php:141
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php(14): Contato->loadById('', '3')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(50): TelefoneController->listarTelefones()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Contato.php on line 141
+[14-Apr-2021 03:47:44 Europe/Berlin] PHP Notice:  Undefined index: id_con in C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php on line 67
+[14-Apr-2021 03:47:44 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetchObject() on bool in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php:126
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php(67): Telefone->loadById('15', NULL)
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(50): TelefoneController->deletarTelefone()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 126
+[14-Apr-2021 06:08:47 Europe/Berlin] PHP Parse error:  syntax error, unexpected '(', expecting variable (T_VARIABLE) in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 56
+[14-Apr-2021 06:09:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function err404() in C:\xampp\htdocs\listaTelefonica\Lib\Application.php:42
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#1 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 42
+[14-Apr-2021 06:09:50 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'View' not found in C:\xampp\htdocs\listaTelefonica\Lib\Application.php:60
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(42): Application->err404()
+#1 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#2 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 60
+[14-Apr-2021 06:10:19 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'View' not found in C:\xampp\htdocs\listaTelefonica\Lib\Application.php:60
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(42): Application->err404()
+#1 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#2 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 60
+[14-Apr-2021 06:12:21 Europe/Berlin] PHP Fatal error:  Uncaught Exception: ERROR: Arquivo: pagina404.phtml não foi encontrado ou não existe. in C:\xampp\htdocs\listaTelefonica\Lib\View.php:51
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\View.php(18): View->setHtmlFile('pagina404.phtml')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(60): View->__construct('pagina404.phtml')
+#2 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(42): Application->err404()
+#3 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#4 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\View.php on line 51
+[14-Apr-2021 06:13:29 Europe/Berlin] PHP Fatal error:  Uncaught Exception: ERROR: Arquivo: logarUsuario.phtml não foi encontrado ou não existe. in C:\xampp\htdocs\listaTelefonica\Lib\View.php:51
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\View.php(18): View->setHtmlFile('logarUsuario.ph...')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(60): View->__construct('logarUsuario.ph...')
+#2 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(42): Application->err404()
+#3 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#4 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\View.php on line 51
+[14-Apr-2021 06:14:36 Europe/Berlin] PHP Parse error:  syntax error, unexpected '"Err"' (T_CONSTANT_ENCAPSED_STRING) in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 61
+[14-Apr-2021 06:53:10 Europe/Berlin] PHP Fatal error:  Uncaught Exception: ERROR: Arquivo: sa não foi encontrado ou não existe. in C:\xampp\htdocs\listaTelefonica\Lib\View.php:51
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\View.php(18): View->setHtmlFile('sa')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(60): View->__construct('sa')
+#2 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(52): Application->err404('Metodo indexRed...')
+#3 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#4 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\View.php on line 51
+[14-Apr-2021 06:53:38 Europe/Berlin] PHP Warning:  require_once(pagina404.phtml): failed to open stream: No such file or directory in C:\xampp\htdocs\listaTelefonica\Lib\View.php on line 32
+[14-Apr-2021 06:53:38 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required 'pagina404.phtml' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\listaTelefonica\Lib\View.php on line 32
+[14-Apr-2021 10:21:14 Europe/Berlin] PHP Fatal error:  Uncaught Exception: ERROR: Você não está logado fi manterContatos in C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php:56
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(51): ContatoController->manterContatos()
+#1 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#2 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php on line 56
+[14-Apr-2021 10:22:12 Europe/Berlin] PHP Notice:  Undefined index: id in C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php on line 34
+[14-Apr-2021 10:22:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetchObject() on bool in C:\xampp\htdocs\listaTelefonica\Models\Contato.php:136
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php(34): Contato->loadById('7', NULL)
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(51): ContatoController->manterContatos()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Contato.php on line 136
+[14-Apr-2021 10:29:50 Europe/Berlin] PHP Parse error:  syntax error, unexpected ',', expecting ';' in C:\xampp\htdocs\listaTelefonica\Models\Usuario.php on line 33

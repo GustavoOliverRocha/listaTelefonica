@@ -72,21 +72,15 @@ class Telefone extends ConectaBanco
         try
         {
             if($this->conectar()->exec($st_query)>0)
-            {
-                echo "Telefone salvo com Sucesso";
                 return true;
-            }
             else
-            {
-                echo "ERR";
                 return false;
-            }
         }
         catch(PDOException $error)
         {
-            echo "ERROR: 8H 4G 5F 66 47 RR";
-            return false;
+            echo "ERROR: ".$error->getMessage();
         }
+        return false;
     }
 
     public function listar($id_contato)
@@ -94,12 +88,13 @@ class Telefone extends ConectaBanco
         if(is_null($id_contato))
             $st_query = "SELECT * FROM tb_tel;";
         else 
-            $st_query = "SELECT * FROM tb_tel WHERE fk_cd_contato = $id_contato;"; 
-        //Vetor Usuarios
+            $st_query = "SELECT * FROM tb_tel WHERE fk_cd_contato = $id_contato;";
+
+        //Vetor Telefone
         $v_tel = [];
         try
         {
-            //Pegando o retorno do bando
+            //Pegando o retorno do banco
             $dados = $this->conectar()->query($st_query);
             while($retorno = $dados->fetchObject())
             {
@@ -113,27 +108,36 @@ class Telefone extends ConectaBanco
             }  
         }
         catch(PDOException $error)
-		{}
+		{
+            echo "ERROR: ".$error->getMessage();
+        }
         return $v_tel;
     }
 
-    public function loadById($id)
+    public function loadById($id,$con_id)
     {
-        $st_query = "SELECT * FROM tb_tel WHERE cd_tel = $id";
+        $st_query = "SELECT * FROM tb_tel WHERE cd_tel = $id and fk_cd_contato = $con_id";
         try
         {
             $dados = $this->conectar()->query($st_query);
             $retorno = $dados->fetchObject();
-            $this->setId($retorno->cd_tel);
-            $this->setDdd($retorno->ddd_tel);
-            $this->setNum($retorno->nr_tel);
-            $this->setTipo($retorno->tp_tel);
-            return $this; 
+            if(!$retorno)
+                return false;
+            else
+            {   
+                $this->setId($retorno->cd_tel);
+                $this->setDdd($retorno->ddd_tel);
+                $this->setNum($retorno->nr_tel);
+                $this->setTipo($retorno->tp_tel);
+                return $this;
+            }     
         }
         catch(PDOException $error)
-		{
-            echo "ERROR: ";
+        {
+            echo "ERROR: ".$error->getMessage();
         }
+            
+
         return false;
     }
 
@@ -143,14 +147,12 @@ class Telefone extends ConectaBanco
         {
             $st_query = "DELETE FROM tb_tel WHERE cd_tel = $this->id_tel;";
             if($this->conectar()->exec($st_query) > 0)
-            {
-                echo "Deletação completa";
                 return true;
-            }
-
         }
-        echo "ERROR: 87 HG 55F 2DS";
-        return false;
+        else
+            return false;
+        
+        
     }
 
 }

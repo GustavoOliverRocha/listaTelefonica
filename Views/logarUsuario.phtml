@@ -2,7 +2,7 @@
 //session_start();
 var_dump(session_status());
 
-if(!isset($_SESSION['usuario'],$_SESSION['senha'],$_SESSION['id']))
+if(!Validador::isLogado())
 {
     echo "Não tem ninguem logado";
 }
@@ -22,6 +22,6 @@ if(!isset($_SESSION['usuario'],$_SESSION['senha'],$_SESSION['id']))
         <button type="submit">Entrar</button>
     </form>
     <br><br>
-    <a href="cadastroUsuario.php">Cadastre-se</a>
+    <a href="?controle=usuario&metodo=cadastrarUsuario">Cadastre-se</a>
 </body>
 </html>
