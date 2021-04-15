@@ -1,6 +1,8 @@
 <?php
 if(file_exists("Lib/Validador.php"))
     require_once "Lib/Validador.php";
+if(file_exists("Lib/DadosFiltro.php"))
+    require_once "Lib/DadosFiltro.php";
 
 class Application
 {
@@ -40,17 +42,17 @@ class Application
         if(file_exists($controllerFile))
             require_once $controllerFile;
         else   
-            $this->err404("Arquivo $controllerFile não encontrado ou existente.");//throw new Exception("Arquivo $controllerFile não encontrado ou existente.");
+            $this->err404("Arquivo $controllerFile não encontrado ou inexistente.");//throw new Exception("Arquivo $controllerFile não encontrado ou existente.");
 
         if(class_exists($classe))
             $c = new $classe;
         else   
-            $this->err404("Classe $classe não encontrada ou existente.");//throw new Exception("Classe $classe não encontrada ou existente.  ");
+            $this->err404("Classe $classe não encontrada ou inexistente.");//throw new Exception("Classe $classe não encontrada ou existente.  ");
         
         if(method_exists($classe,$metodo))
             $c->$metodo();
         else
-            $this->err404("Metodo $metodo não encontrado ou existente.");//throw new Exception("Metodo $metodo não encontrado ou existente.");
+            $this->err404("Metodo $metodo não encontrado ou inexistente.");//throw new Exception("Metodo $metodo não encontrado ou existente.");
 
     }
     

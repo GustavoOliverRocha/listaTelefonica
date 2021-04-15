@@ -5,22 +5,22 @@ require_once "./Lib/View.php";
 session_start();
 class TelefoneController
 {
-    public function listarTelefones()
-    {  
-        if(Validador::isLogado())
-        {
-            if(isset($_REQUEST['id_con']))
-            {  
-                $c = new Contato();
-                $t = new Telefone();
-                $v = new View("Views/listarTelefones.phtml");
-
-                $c->loadById($_REQUEST['id_con'],$_SESSION['id']);
-                $v->setDados(array("telefones" => $t->listar($_REQUEST['id_con']),'contato' => $c));
-            }
-        }
-        else
+    function __construct()
+    {
+        if(!Validador::isLogado())
             exit("ERROR: Você não está logado fi ".$_GET['metodo']);
+    }
+    public function listarTelefones()
+    { 
+        if(isset($_REQUEST['id_con']))
+        {  
+            $c = new Contato();
+            $t = new Telefone();
+            $v = new View("Views/listarTelefones.phtml");
+
+            $c->loadById($_REQUEST['id_con'],$_SESSION['id']);
+            $v->setDados(array("telefones" => $t->listar($_REQUEST['id_con']),'contato' => $c));
+        }
         $v->mostrarPagina();
     } 
 
@@ -39,10 +39,10 @@ class TelefoneController
         {
             if(count($_POST) > 0)
             {   
-                if(strlen($_POST['ddd_tel']) > 0 && strlen($_POST['ddd_tel']) > 0 && strlen($_POST['tp_tel']) > 0)
+                if(Validador::postTel())
                 {
-                    $t->setDdd($_POST['ddd_tel']);
-                    $t->setNum($_POST['nr_tel']);
+                    $t->setDdd(DadosFiltro::numerico($_POST['ddd_tel']));
+                    $t->setNum(DadosFiltro::numerico($_POST['nr_tel']));
                     $t->setTipo($_POST['tp_tel']);
                     $t->setContatoId($_REQUEST['id_con']);
                     if($t->save())
@@ -55,8 +55,6 @@ class TelefoneController
                 
             }
         }
-        else
-            exit("ERROR: Você não está logado fi ".$_GET['metodo']);
         $v->setDados(array("telefone" => $t,"contato" => $c));
         $v->mostrarPagina();
     }
@@ -72,7 +70,6 @@ class TelefoneController
             else    
                 exit("ERROR: no metodo ".$_GET['metodo']);
         }
-
     }
 }
 

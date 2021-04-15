@@ -1,8 +1,8 @@
 <?php
-require_once "Controllers/Validador.php";
-$teste = "SAd";
+require_once "Lib/DadosFiltro.php";
+$teste = "3\;.567abtyu";
 $tst = "";
 
-echo Validador::temPost($tst);
+echo DadosFiltro::numerico($teste);
 
 ?>

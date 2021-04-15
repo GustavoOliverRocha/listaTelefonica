@@ -34,7 +34,7 @@ class Usuario extends ConectaBanco
     }
     public function setSenha($s)
     {
-        $this->st_senha = sha1($s,true);
+        $this->st_senha = password_hash($s,PASSWORD_BCRYPT);
     }
     /**
      * Metodo de Criar e Alterar
@@ -120,18 +120,19 @@ class Usuario extends ConectaBanco
      */
     public function loadByLogin($email,$senha)
     {
-        $st_query = "SELECT * FROM tb_usuario WHERE nm_usuario = '$email' and pw_usuario = '$senha'";
+        $st_query = "SELECT * FROM tb_usuario WHERE nm_usuario = '$email'";
         try
         {
             $dados = $this->conectar()->query($st_query);
             $retorno = $dados->fetchObject();
+
             if(!$retorno)
-            {
-                //echo "Errado";
-                return false;
-            }
+                return false;     
             else
             {
+                if(!password_verify($senha,$retorno->pw_usuario))
+                    return false;
+
                 $this->setId($retorno->cd_usuario);
                 $this->setNome($retorno->nm_usuario);
                 $this->setSenha($retorno->pw_usuario);

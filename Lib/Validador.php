@@ -16,11 +16,17 @@ class Validador
         return true;
     }
 
-    static function temPost($st)
+    static function postTel()
     {
-        if(isset($_POST[$st]))
-            if(strlen($_POST[$st]) > 0)
-                return true;
+        if(strlen($_POST['ddd_tel']) > 0 && strlen($_POST['ddd_tel']) > 0 && strlen($_POST['tp_tel']) > 0)
+            return true;
+        return false;
+    }
+    
+    static function postCon()
+    {
+        if(strlen($_POST['nm_con']) > 0 && strlen($_POST['email_con']) > 0)
+            return true;
         return false;
     }
 }

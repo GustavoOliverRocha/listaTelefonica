@@ -481,3 +481,20 @@ Stack trace:
 #3 {main}
   thrown in C:\xampp\htdocs\listaTelefonica\Models\Contato.php on line 136
 [14-Apr-2021 10:29:50 Europe/Berlin] PHP Parse error:  syntax error, unexpected ',', expecting ';' in C:\xampp\htdocs\listaTelefonica\Models\Usuario.php on line 33
+[15-Apr-2021 01:54:58 Europe/Berlin] PHP Warning:  Use of undefined constant hash - assumed 'hash' (this will throw an Error in a future version of PHP) in C:\xampp\htdocs\listaTelefonica\Views\logarUsuario.phtml on line 11
+[15-Apr-2021 02:14:05 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE), expecting ';' in C:\xampp\htdocs\listaTelefonica\Models\Usuario.php on line 135
+[15-Apr-2021 02:19:24 Europe/Berlin] PHP Warning:  password_hash() expects at least 2 parameters, 1 given in C:\xampp\htdocs\listaTelefonica\Models\Usuario.php on line 134
+[15-Apr-2021 02:26:30 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in C:\xampp\htdocs\listaTelefonica\Models\Usuario.php on line 134
+[15-Apr-2021 06:26:52 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'DadosFiltro' not found in C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php:44
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(51): TelefoneController->manterTelefone()
+#1 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#2 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php on line 44
+[15-Apr-2021 09:31:21 Europe/Berlin] PHP Warning:  require_once(Controllers/Validador.php): failed to open stream: No such file or directory in C:\xampp\htdocs\listaTelefonica\teste.php on line 2
+[15-Apr-2021 09:31:21 Europe/Berlin] PHP Fatal error:  require_once(): Failed opening required 'Controllers/Validador.php' (include_path='C:\xampp\php\PEAR') in C:\xampp\htdocs\listaTelefonica\teste.php on line 2
+[15-Apr-2021 09:31:38 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'Validador' not found in C:\xampp\htdocs\listaTelefonica\teste.php:6
+Stack trace:
+#0 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\teste.php on line 6
+[15-Apr-2021 09:33:34 Europe/Berlin] PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in C:\xampp\htdocs\listaTelefonica\Lib\DadosFiltro.php on line 13

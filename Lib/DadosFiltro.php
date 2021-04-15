@@ -11,7 +11,7 @@ class DadosFiltro
     static function numerico( $dados )
 	{
 		$st = preg_replace("([[:punct:]]|[[:alpha:]]| )",'',$dados);
-		return $dados;	
+		return $st;	
 	}
 
     static function semTag($dados)

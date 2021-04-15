@@ -11,17 +11,17 @@ require_once "./Lib/View.php";
 session_start();
 class ContatoController
 {
-    public function listarContatos()
-    {  
-        if(Validador::isLogado())
-        {
-            $c = new Contato();
-            $v = new View("Views/listarContatos.phtml");
-            $v->setDados(array("contatos" => $c->listar($_SESSION['id'])));
-        }
-        else
+    function __construct()
+    {
+        if(!Validador::isLogado())
             exit("ERROR: Você não está logado fi ".$_GET['metodo']);
-            
+    }
+
+    public function listarContatos()
+    {
+        $c = new Contato();
+        $v = new View("Views/listarContatos.phtml");
+        $v->setDados(array("contatos" => $c->listar($_SESSION['id'])));      
         $v->mostrarPagina();
     } 
 
@@ -29,17 +29,14 @@ class ContatoController
     {   
         $c= new Contato();
         $v= new View("Views/registrarContatos.phtml");
-        if(!Validador::isLogado())
-            exit("ERROR: Você não está logado fi ".$_GET['metodo']);
-
         if(isset($_REQUEST['id_con']))
             $c->loadById($_REQUEST['id_con'],$_SESSION['id']);
 
         if(Validador::isLogado())
         {
-            if(isset($_POST['nm_con'],$_POST['email_con']))
+            if(count($_POST) > 0)
             {
-                if(strlen($_POST['nm_con']) > 0 && strlen($_POST['email_con']) > 0)
+                if(Validador::postCon())
                 {
                     $c->setNome($_POST['nm_con']);
                     $c->setEmail($_POST['email_con']);
@@ -51,10 +48,9 @@ class ContatoController
                 }
                 else
                     echo "Campo não pode ficar vazio";
-                
+                    
             }
-        }
-            
+        }  
         $v->setDados(array("contatos" => $c));
         $v->mostrarPagina();
     }
