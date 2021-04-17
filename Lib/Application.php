@@ -55,6 +55,7 @@ class Application
         {
             $v = new View("Views/pagina404.phtml");
             $v->setError("Metodo $metodo não encontrado ou inexistente.");//throw new Exception("Metodo $metodo não encontrado ou existente.");
+            $v->mostrarPagina();
         }
 
     }
