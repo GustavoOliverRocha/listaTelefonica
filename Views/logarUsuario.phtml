@@ -4,27 +4,37 @@ var_dump(session_status());
 
 if(!Validador::isLogado())
     echo "Não tem ninguem logado";
-/*$yuuna = "ds";
-$teste = "ds";
-$senha = password_hash("ds",PASSWORD_BCRYPT);
-echo $senha;
-var_dump(password_verify($teste,$senha));*/
+require_once "Template/header.phtml";
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
-</head>
 <body>
-    <form method="POST">
-        Nome: <input type="text" name="login"/><br><br>
-        Senha: <input type="password" name="senha"/><br><br>
-        <button type="submit">Entrar</button>
-    </form>
-    <br><br>
-    <a href="?controle=usuario&metodo=cadastrarUsuario">Cadastre-se</a>
+<div class="container">
+    <div class="row">
+        
+        <form class="col s6 grey lighten-5 center-align z-depth-1 offset-l3" method="POST">
+            <div class="row"><h6 class="red-text"><?php echo $this->getError(); ?></h6></div>
+            <div class="row ">
+                <div class="input-field col s10 ">
+                    <input id="email" type="text" class="validate " name="login">
+                    <label for="email">Usuario</label>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s10">
+                    <input id="password" type="password" class="validate" name="senha"> 
+                    <label for="password">Senha</label>    
+                    <a class="left" href="?controle=usuario&metodo=cadastrarUsuario">Cadastre-se</a>
+                </div>
+                <div class="input-field col s10">
+                    
+                    <button class="btn waves-effect waves-light light-green accent-4 right" type="submit" name="action">
+                        Entrar
+                    </button>
+                </div>
+            </div>
+        </form>  
+    </div>
+</div>
+    <?php require_once "Template/footer.phtml"; ?>
 </body>
 </html>

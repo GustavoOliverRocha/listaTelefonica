@@ -2,41 +2,41 @@
 var_dump(session_status());
 $v_dados = $this->getDados();
 $v_contatos = $v_dados['contatos'];
-
+require_once "Template/header.phtml";
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Contatos</title>
-</head>
 <body>
-    <nav>
-        <h4>Seja Bem Viado: <?php echo $_SESSION['usuario'];?></h4>
-        <a href="?controle=usuario&metodo=deslogar">Deslogar</a>   
-    </nav>
-    <a href="?controle=contato&metodo=manterContatos">Inserir Contatos</a>
-    <table style="border: 3px;">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>Email</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($v_contatos as $i) { ?>
-            <tr> 
-                <td><?php echo $i->getNome(); ?></td>
-                <td><?php echo $i->getEmail(); ?></td>
-                <td><a href="?controle=telefone&metodo=listarTelefones&id_con=<?php echo $i->getId();?>">Ver Telefones</a></td>
-                <td><a href="?controle=contato&metodo=manterContatos&id_con=<?php echo $i->getId();?>">Alterar</a></td>
-                <td><a href="?controle=contato&metodo=deletarContato&id_con=<?php echo $i->getId();?>">Apagar</a></td>    
-            </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+    <?php require_once "Template/navbar.phtml"; ?>
+    <br><br>
+<div class="container">
+    <div class="cols12">
+        
+        <table style="width: 80%;" class="highlight  responsive-table">
+            <thead class="teal lighten-1">
+                <tr >
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th colspan="3">
+                        Ações
+                        <a class="btn-floating waves-effect waves-light  green accent-3 right" href="?controle=contato&metodo=manterContatos">
+                            <i class="material-icons">add</i>
+                        </a>
+                    </th>
+                </tr>
+            </thead>
+            <tbody class="grey lighten-2">
+                <?php foreach($v_contatos as $i) { ?>
+                <tr> 
+                    <td><?php echo $i->getNome(); ?></td>
+                    <td><?php echo $i->getEmail(); ?></td>
+                    <td><a href="?controle=telefone&metodo=listarTelefones&id_con=<?php echo $i->getId();?>">Ver Telefones</a></td>
+                    <td><a href="?controle=contato&metodo=manterContatos&id_con=<?php echo $i->getId();?>">Alterar</a></td>
+                    <td><a href="?controle=contato&metodo=deletarContato&id_con=<?php echo $i->getId();?>">Apagar</a></td>    
+                </tr>
+                <?php } ?>
+            </tbody>
+        </table>
+    </div>
+</div>
+    <?php require_once "Template/footer.phtml"; ?>
 </body>
 </html>

@@ -1,0 +1,21 @@
+    <ul id="dropdown1" class="dropdown-content">
+		<li><a href="#!">Config</a></li>
+		<li class="divider"></li>
+		<li><a href="?controle=usuario&metodo=deslogar">Deslogar</a></li>
+	</ul>
+    <nav>
+        <div class="nav-wrapper green accent-4">
+            <a href="?controle=contato&metodo=listarContatos" class="brand-logo">
+                <i class=" material-icons ">dialpad</i>Listinha Telefonica
+            </a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                    <li>Seja Bem Viado: <?php echo $_SESSION['usuario'];?></li>
+                    <li>
+                    	<a class="dropdown-trigger" href="#!" data-target="dropdown1">
+	                    	<i class="material-icons">more_vert</i>
+                		</a>
+                    </li>
+                    
+            </ul>
+        </div>
+    </nav>

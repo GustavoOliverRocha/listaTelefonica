@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404</title>
-</head>
+<?php
+require_once "Template/header.phtml";
+?>
 <body>
+	<?php if(Validador::isLogado()){ require_once "Template/navbar.phtml";} ?>
     <h1>ERROR 404</h1>
+    <?php echo $this->getError(); ?>
+    <?php require_once "Template/footer.phtml"; ?>
 </body>
 </html>

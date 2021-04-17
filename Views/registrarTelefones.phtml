@@ -3,15 +3,14 @@ var_dump(session_status());
 $v_dados = $this->getDados();
 $v_tel = $v_dados['telefone'];
 $v_con = $v_dados['contato'];
+require_once "Template/header.phtml";
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Registrar Telefone</title>
-</head>
 <body>
-	<form method="POST">
-		DDD<input type="text" name="ddd_tel" placeholder="(xxx)" value="<?php echo $v_tel->getDdd();?>" required/>
+	<?php require_once "Template/navbar.phtml"; ?>
+	<!--<a href="?controle=telefone&metodo=listarTelefones&id_con=<?php echo $v_con->getId();?>">Voltar</a>-->
+	
+	<!--<form method="POST">
+		DDD<input type="text" name="ddd_tel" maxlength="3" placeholder="(xxx)" value="<?php echo $v_tel->getDdd();?>" required/>
 		Numero de Telefone<input type="text" name="nr_tel" placeholder="xxxx-xxxx" value="<?php echo $v_tel->getNum();?>"required/><br><br>
 		Tipo:
 		<select name="tp_tel">
@@ -21,7 +20,53 @@ $v_con = $v_dados['contato'];
 			<option value="Comercial">Comercial</option>
 		</select><br><br>
 		<button type="submit">Confirmar</button>
-	</form>
-	<a href="?controle=telefone&metodo=listarTelefones&id_con=<?php echo $v_con->getId();?>">Voltar</a>
+	</form>-->
+<div class="row">
+	<div class="col s6 grey lighten-5 center-align z-depth-1 center-align offset-l1">
+		<div class="row">
+			<a class="waves-effect waves-light btn-small left" href="?controle=telefone&metodo=listarTelefones&id_con=<?php echo $v_con->getId();?>">
+				<i class="small material-icons left ">arrow_back</i>
+			</a>
+		</div>
+        <form class="" method="POST">
+            <div class="row ">
+                <div class="input-field col s2 ">
+                    <input id="ddd" maxlength="3" type="text" class="validate" name="ddd_tel" placeholder="(xxx)" value="<?php echo $v_tel->getDdd();?>" required>
+                    <label for="ddd">DDD</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="num" type="text" class="validate" name="nr_tel" placeholder="xxxx-xxxx" value="<?php echo $v_tel->getNum();?>"required> 
+                    <label for="num">Numero Telefone</label>    
+                </div>
+            </div>
+            <div class="row">
+            		<div class="input-field col 5">
+			    		<select name="tp_tel">
+					    	<option value="<?php echo $v_tel->getTipo();?>" selected>
+					    		<?php echo $v_tel->getTipo();?>	
+					    	</option>
+							<option value="Fixo">Fixo</option>
+							<option value="Celular">Celular</option>
+							<option value="Comercial">Comercial</option>
+			    		</select>
+			    		<label>Tipo</label>
+			 		</div>
+            </div>
+            <div class="row">
+	            <div class="input-field col s3">
+	                <button class="btn waves-effect waves-light  blue left" type="reset" name="action">
+	                    Redefinir
+	                </button>
+	            </div>
+	            <div class="input-field col s3">   
+	                <button class="btn waves-effect waves-light light-green accent-4 right" type="submit" name="action">
+	                    Confirmar
+	                </button>
+	            </div>
+            </div>
+        </form> 
+    </div>
+</div>
+	<?php require_once "Template/footer.phtml"; ?>
 </body>
 </html>

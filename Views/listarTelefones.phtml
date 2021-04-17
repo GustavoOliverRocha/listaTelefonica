@@ -1,27 +1,32 @@
-
 <?php
 var_dump(session_status());
 $v_dados = $this->getDados();
 $v_tel = $v_dados['telefones'];
 $v_con = $v_dados['contato'];
+require_once "Template/header.phtml";
+echo $v_con->getNome();
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Lista Telefonica</title>
-</head>
 <body>
-	<a href="?controle=telefone&metodo=manterTelefone&id_con=<?php echo $v_con->getId(); ?>">Inserir Telefone</a>
-	<a href="?controle=contato&metodo=listarContatos">Voltar</a>
-	<table>
-		<thead>
+	<?php require_once "Template/navbar.phtml"; ?>
+	<!--<a href="?controle=telefone&metodo=manterTelefone&id_con=<?php echo $v_con->getId(); ?>">Inserir Telefone</a>
+	<a href="?controle=contato&metodo=listarContatos">Voltar</a>-->
+	<a class="waves-effect waves-light btn-small" href="?controle=contato&metodo=listarContatos">
+		<i class="small material-icons left ">arrow_back</i>
+	</a>
+<div class="container">
+	<h6>Telefones de contato de:  <?php echo $v_con->getNome(); ?></h6>
+	<table style="width: 80%;" class="highlight responsive-table centered">
+		<thead class="green accent-4" >
 			<tr>
-				<th>Número</th>
-				<th>Tipo</th>
-				<th>Ações</th>
+				<th class="center">Número</th>
+				<th class="center">Tipo</th>
+				<th colspan="2" class="center">
+					Ações
+					<a class="waves-effect waves-light btn btn-small right" href="?controle=telefone&metodo=manterTelefone&id_con=<?php echo $v_con->getId(); ?>"><i class="material-icons left">add</i>Tel</a>
+				</th>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody class="grey lighten-2">
 			<?php foreach($v_tel as $i){?>
 			<tr>
 				<td><?php echo "(".$i->getDdd().")".$i->getNum();?></td>
@@ -32,5 +37,7 @@ $v_con = $v_dados['contato'];
 			<?php } ?>
 		</tbody>
 	</table>
+</div>
+	<?php require_once "Template/footer.phtml"; ?>
 </body>
 </html>

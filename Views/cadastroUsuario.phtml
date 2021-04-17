@@ -1,18 +1,47 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastrar</title>
-</head>
+<?php
+require_once "Template/header.phtml";
+?>
 <body>
-	<form method="POST">
+<!--<a href="?controle=usuario&metodo=logarUsuario">Voltar</a>-->
+	<!--<form method="POST">
 		Nome:<input type="text" name="u_nome"/><br><br>
 		Senha:<input type="password" name="u_senha"/><br><br>
 		Confirmar Senha: <input type="password" name="c_senha"/><br><br>
 		<button type="submit">Cadastrar</button><br><br>
-	</form>
-	<a href="?controle=usuario&metodo=logarUsuario">Voltar</a>
+	</form>-->
+<a class="waves-effect waves-light btn-small" href="?controle=usuario&metodo=logarUsuario">
+    <i class="small material-icons left ">arrow_back</i>
+</a>
+
+<div class="container">
+    <div class="row">
+        <form class="col s6 grey lighten-5 center-align z-depth-1 offset-l3" method="POST">
+            <div class="row ">
+                <div class="input-field col s10 ">
+                    <input id="email" type="text" class="validate " name="u_nome">
+                    <label for="email">Nome Usuario</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s10">
+                    <input id="password" type="password" class="validate" name="u_senha"> 
+                    <label for="password">Senha</label>    
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s10">
+                    <input id="password" type="password" class="validate" name="c_senha"> 
+                    <label for="passwordConfirm">Confirmar Senha</label>    
+                </div>
+            </div>
+            <div class="input-field col s10">   
+                    <button class="btn waves-effect waves-light light-green accent-4 right" type="submit" name="action">
+                        Cadastrar
+                    </button>
+            </div>
+        </form>  
+    </div>
+</div>
+	<?php require_once "Template/footer.phtml"; ?>
 </body>
 </html>

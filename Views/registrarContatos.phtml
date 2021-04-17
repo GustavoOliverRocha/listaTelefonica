@@ -2,20 +2,50 @@
 var_dump(session_status());
 $v_dados = $this->getDados();
 $v_contatos = $v_dados['contatos'];
-
+require_once "Template/header.phtml";
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Registro de Contato</title>
-</head>
 <body>
-	<form method="POST">
+	<?php require_once "Template/navbar.phtml"; ?>
+	<!--<form method="POST">
 		Nome:<input type="text" name="nm_con" value='<?php echo $v_contatos->getNome();?>' required /><br><br>
 		E-mail<input type="email" name="email_con" value='<?php echo $v_contatos->getEmail();?>' placeholder="youremail@example.com" required/><br><br>
 		<button type="submit">Confirmar</button>
 		<button type="reset">Redefinir</button>
-	</form>
-	<a href="?controle=contato&metodo=listarContatos">Voltar</a>
+	</form>-->
+	<br>
+
+	<!--<a href="?controle=contato&metodo=listarContatos">Voltar</a>-->
+<div class="row">
+	<div class="col s12 m4 l8 grey lighten-5 center-align z-depth-1 center-align offset-l1">
+		<div class="row">
+			<a class="waves-effect waves-light btn-small left" href="?controle=contato&metodo=listarContatos">
+				<i class="small material-icons left ">arrow_back</i>
+			</a>
+		</div>
+        <form class="" method="POST">
+            <div class="row ">
+                <div class="input-field col s10 ">
+                    <input id="name" type="text" class="validate" name="nm_con" value='<?php echo $v_contatos->getNome();?>' required>
+                    <label for="name">Nome Contato</label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="input-field col s10">
+                    <input id="email" type="text" class="validate" name="email_con" value='<?php echo $v_contatos->getEmail();?>' placeholder="youremail@example.com" required> 
+                    <label for="email">E-mail</label>    
+                </div>
+            </div>
+            <div class="input-field col s10">   
+                    <button class="btn waves-effect waves-light light-green accent-4 right" type="submit" name="action">
+                        Confirmar
+                    </button>
+                    <button class="btn waves-effect waves-light  blue left" type="reset" name="action">
+                        Redefinir
+                    </button>
+            </div>
+        </form> 
+    </div>
+</div>
+	<?php require_once "Template/footer.phtml"; ?>
 </body>
 </html>
