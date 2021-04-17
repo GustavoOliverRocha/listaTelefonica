@@ -30,10 +30,10 @@ class UsuarioController
                     Application::redirecionar("?controle=contato&metodo=listarContatos");
                 }      
                 else
-                    echo "Login errado";
+                    $o_view->setError("Login errado");
             }
             else
-                echo "Campo não pode ficar vazio.";
+                $o_view->setError("Campo não pode ficar vazio.");
         }
         $o_view->mostrarPagina(); 
     }

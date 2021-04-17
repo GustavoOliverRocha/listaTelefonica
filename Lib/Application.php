@@ -52,18 +52,21 @@ class Application
         if(method_exists($classe,$metodo))
             $c->$metodo();
         else
-            $this->err404("Metodo $metodo não encontrado ou inexistente.");//throw new Exception("Metodo $metodo não encontrado ou existente.");
+        {
+            $v = new View("Views/pagina404.phtml");
+            $v->setError("Metodo $metodo não encontrado ou inexistente.");//throw new Exception("Metodo $metodo não encontrado ou existente.");
+        }
 
     }
     
-    public function err404($msg)
+   /* public function err404($msg)
     {
         if(file_exists("./Lib/View.php"))
             require_once "./Lib/View.php";
         $v = new View("Views/pagina404.phtml");
         echo $msg;
         $v->mostrarPagina();
-    }
+    }*/
 
     public function redirecionar($url)
     {
