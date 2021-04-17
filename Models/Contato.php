@@ -12,7 +12,7 @@ class Contato extends ConectaBanco
 
     function __construct()
     {
-
+        $this->criarTabela();
     }
     /**
      * Metodos Especiais
@@ -171,6 +171,26 @@ class Contato extends ConectaBanco
             
         }
         return false;
+    }
+
+    public function criarTabela()
+    {
+        $st_query = "create table if not exists tb_contato(
+                        cd_contato int not null auto_increment,
+                        nm_contato varchar(30),
+                        nm_email varchar(40),
+                        fk_cd_usuario int,
+                        constraint pk_contato primary key(cd_contato),
+                        constraint fk_contato_usuario foreign key(fk_cd_usuario) references tb_usuario(cd_usuario)
+                        );";
+        try
+        {
+            $this->conectar()->exec($st_query);
+        }
+        catch(PDOException $error)
+        {
+            echo "ERROR: <br>".$error->getMessage();
+        }
     }
 
 

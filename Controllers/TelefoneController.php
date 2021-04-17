@@ -51,7 +51,7 @@ class TelefoneController
                         exit("ERROR: no metodo ".$_GET['metodo']);
                 }
                 else
-                    echo "Campo não pode ficar vazio";
+                    $v->setError("Campo não pode ficar vazio");
                 
             }
         }

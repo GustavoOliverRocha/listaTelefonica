@@ -30,7 +30,7 @@ class UsuarioController
                     Application::redirecionar("?controle=contato&metodo=listarContatos");
                 }      
                 else
-                    $o_view->setError("Login errado");
+                    $o_view->setError("Usuario ou Senha incorretos");
             }
             else
                 $o_view->setError("Campo não pode ficar vazio.");
@@ -75,13 +75,13 @@ class UsuarioController
                             Application::redirecionar("?controle=usuario&metodo=logarUsuario"); 
                     } 
                     else
-                        echo "Nome de Usuario Já existente";
+                        $o_view->setError("Nome de usuario ja cadastrado");
                 }
                 else
-                    echo "Senhas não batem";
+                    $o_view->setError("Senhas não batem");
             }
             else
-                echo "Campo não pode ficar vazio";
+                $o_view->setError("Campo não pode ficar vazio");
         }
         $o_view->mostrarPagina();
     }

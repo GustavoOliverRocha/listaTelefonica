@@ -8,6 +8,8 @@ class View
     private $htmlFile;
     private $dados;
     private $error;
+    //private $error = [];
+
     /**
      * O construtor receberá o nome do arquivo HTML a ser renderizado
      * que atribuirá ao atributos $htmlFile
@@ -26,6 +28,11 @@ class View
     {
         $this->error = $err;
     }
+
+    /*public function setError($key,$err)
+    {
+        $this->error[$key] = $err;
+    }*/
     /**
      * getConteudo() vai ser aquele que vai retonar literalmente o HTML como uma string nele
      * 

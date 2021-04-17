@@ -13,6 +13,7 @@ class Telefone extends ConectaBanco
 
     function __construct()
     {
+        $this->criarTabela();
     }
 
     /**
@@ -153,6 +154,27 @@ class Telefone extends ConectaBanco
             return false;
         
         
+    }
+
+    public function criarTabela()
+    {
+        $st_query = "create table if not exists tb_tel(
+                        cd_tel int not null auto_increment,
+                        nr_tel int(15),
+                        ddd_tel int(3),     
+                        tp_tel varchar(15),
+                        fk_cd_contato int,
+                        constraint pk_tel primary key(cd_tel),
+                        constraint fk_tel_contato foreign key(fk_cd_contato) references tb_contato(cd_contato));";
+        try
+        {
+            $this->conectar()->exec($st_query);
+        }
+        catch(PDOException $error)
+        {
+            echo "ERROR: ".$error->getMessage();
+        }
+
     }
 
 }

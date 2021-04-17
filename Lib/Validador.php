@@ -29,5 +29,11 @@ class Validador
             return true;
         return false;
     }
+
+    static function manterInput($key,Array $vetor)
+    {
+        if(array_key_exists($key, $vetor))
+                return $vetor[$key];
+    }
 }
 ?>

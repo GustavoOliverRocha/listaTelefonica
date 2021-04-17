@@ -498,3 +498,191 @@ Stack trace:
 #0 {main}
   thrown in C:\xampp\htdocs\listaTelefonica\teste.php on line 6
 [15-Apr-2021 09:33:34 Europe/Berlin] PHP Warning:  preg_replace(): Delimiter must not be alphanumeric or backslash in C:\xampp\htdocs\listaTelefonica\Lib\DadosFiltro.php on line 13
+[17-Apr-2021 05:08:14 Europe/Berlin] PHP Notice:  Undefined index: u_nome in C:\xampp\htdocs\listaTelefonica\Views\logarUsuario.phtml on line 17
+[17-Apr-2021 05:13:23 Europe/Berlin] PHP Warning:  array_key_exists() expects parameter 2 to be array, string given in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 35
+[17-Apr-2021 05:13:48 Europe/Berlin] PHP Warning:  array_key_exists() expects parameter 2 to be array, string given in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 35
+[17-Apr-2021 05:42:26 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Validador::error(), 0 passed in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 23 and exactly 1 expected in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php:38
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml(23): Validador::error()
+#1 C:\xampp\htdocs\listaTelefonica\Lib\View.php(39): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\listaTelefonica\Lib\View.php(79): View->getConteudo()
+#3 C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php(87): View->mostrarPagina()
+#4 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): UsuarioController->cadastrarUsuario()
+#5 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#6 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 38
+[17-Apr-2021 05:45:53 Europe/Berlin] PHP Notice:  Undefined variable: erro in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 40
+[17-Apr-2021 05:45:53 Europe/Berlin] PHP Notice:  Undefined variable: erro in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 40
+[17-Apr-2021 06:10:21 Europe/Berlin] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW), expecting ']' in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php on line 79
+[17-Apr-2021 06:10:37 Europe/Berlin] PHP Fatal error:  Uncaught Error: Access to undeclared static property: Validador::$errors in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php:79
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): UsuarioController->cadastrarUsuario()
+#1 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#2 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php on line 79
+[17-Apr-2021 06:11:35 Europe/Berlin] PHP Fatal error:  Uncaught Error: Access to undeclared static property: Validador::$errors in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php:79
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): UsuarioController->cadastrarUsuario()
+#1 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#2 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php on line 79
+[17-Apr-2021 06:12:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Validador::temErrors() in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml:23
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\View.php(39): require_once()
+#1 C:\xampp\htdocs\listaTelefonica\Lib\View.php(79): View->getConteudo()
+#2 C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php(87): View->mostrarPagina()
+#3 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): UsuarioController->cadastrarUsuario()
+#4 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#5 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 23
+[17-Apr-2021 06:13:10 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Validador::temErros(), 0 passed in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 23 and exactly 1 expected in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php:40
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml(23): Validador::temErros()
+#1 C:\xampp\htdocs\listaTelefonica\Lib\View.php(39): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\listaTelefonica\Lib\View.php(79): View->getConteudo()
+#3 C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php(87): View->mostrarPagina()
+#4 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): UsuarioController->cadastrarUsuario()
+#5 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#6 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 40
+[17-Apr-2021 06:13:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php:44
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml(23): Validador::temErros('nm_u')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\View.php(39): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\listaTelefonica\Lib\View.php(79): View->getConteudo()
+#3 C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php(87): View->mostrarPagina()
+#4 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): UsuarioController->cadastrarUsuario()
+#5 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#6 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 44
+[17-Apr-2021 06:14:41 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function Validador::temErros(), 1 passed in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 23 and exactly 2 expected in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php:40
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml(23): Validador::temErros('nm_u')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\View.php(39): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\listaTelefonica\Lib\View.php(79): View->getConteudo()
+#3 C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php(87): View->mostrarPagina()
+#4 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): UsuarioController->cadastrarUsuario()
+#5 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#6 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 40
+[17-Apr-2021 06:15:00 Europe/Berlin] PHP Notice:  Undefined variable: err in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 23
+[17-Apr-2021 06:15:00 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Argument 2 passed to Validador::temErros() must be of the type array, null given, called in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 23 and defined in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php:40
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml(23): Validador::temErros('nm_u', NULL)
+#1 C:\xampp\htdocs\listaTelefonica\Lib\View.php(39): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\listaTelefonica\Lib\View.php(79): View->getConteudo()
+#3 C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php(87): View->mostrarPagina()
+#4 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): UsuarioController->cadastrarUsuario()
+#5 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#6 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 40
+[17-Apr-2021 06:18:09 Europe/Berlin] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php:43
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php(79): Validador::setErros('nm_u', true)
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): UsuarioController->cadastrarUsuario()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 43
+[17-Apr-2021 06:19:25 Europe/Berlin] PHP Notice:  Undefined variable: errors in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 23
+[17-Apr-2021 06:19:25 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Argument 2 passed to Validador::temErros() must be of the type array, null given, called in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 23 and defined in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php:46
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml(23): Validador::temErros('nm_u', NULL)
+#1 C:\xampp\htdocs\listaTelefonica\Lib\View.php(39): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\listaTelefonica\Lib\View.php(79): View->getConteudo()
+#3 C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php(87): View->mostrarPagina()
+#4 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): UsuarioController->cadastrarUsuario()
+#5 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#6 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 46
+[17-Apr-2021 06:20:48 Europe/Berlin] PHP Notice:  Undefined variable: errors in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 23
+[17-Apr-2021 06:20:48 Europe/Berlin] PHP Fatal error:  Uncaught TypeError: Argument 2 passed to Validador::temErros() must be of the type array, null given, called in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 23 and defined in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php:47
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml(23): Validador::temErros('nm_u', NULL)
+#1 C:\xampp\htdocs\listaTelefonica\Lib\View.php(39): require_once('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\listaTelefonica\Lib\View.php(79): View->getConteudo()
+#3 C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php(87): View->mostrarPagina()
+#4 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): UsuarioController->cadastrarUsuario()
+#5 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#6 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 47
+[17-Apr-2021 06:27:16 Europe/Berlin] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php:42
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php(79): Validador::setErros(Array)
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): UsuarioController->cadastrarUsuario()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 42
+[17-Apr-2021 06:27:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php:42
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php(79): Validador::setErros(Array)
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): UsuarioController->cadastrarUsuario()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 42
+[17-Apr-2021 06:27:51 Europe/Berlin] PHP Fatal error:  Uncaught Error: Using $this when not in object context in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php:42
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php(79): Validador::setErros(Array)
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): UsuarioController->cadastrarUsuario()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 42
+[17-Apr-2021 06:28:11 Europe/Berlin] PHP Parse error:  syntax error, unexpected '}' in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php on line 80
+[17-Apr-2021 06:33:02 Europe/Berlin] PHP Notice:  Undefined variable: erros in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:33:02 Europe/Berlin] PHP Warning:  array_key_exists() expects parameter 2 to be array, unknown given in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:33:15 Europe/Berlin] PHP Notice:  Undefined property: View::$erros in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:33:15 Europe/Berlin] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:33:46 Europe/Berlin] PHP Notice:  Undefined variable: usuario in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:33:46 Europe/Berlin] PHP Notice:  Trying to get property 'erros' of non-object in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:33:46 Europe/Berlin] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:35:00 Europe/Berlin] PHP Notice:  Undefined variable: c in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:35:00 Europe/Berlin] PHP Notice:  Trying to get property 'erros' of non-object in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:35:00 Europe/Berlin] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:35:16 Europe/Berlin] PHP Notice:  Undefined variable: c in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:35:16 Europe/Berlin] PHP Notice:  Undefined variable: erros in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:35:16 Europe/Berlin] PHP Notice:  Trying to get property '' of non-object in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:35:16 Europe/Berlin] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:38:05 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method View::setErros() in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php:79
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): UsuarioController->cadastrarUsuario()
+#1 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#2 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php on line 79
+[17-Apr-2021 06:38:14 Europe/Berlin] PHP Notice:  Undefined variable: c in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:38:14 Europe/Berlin] PHP Notice:  Undefined variable: erros in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:38:14 Europe/Berlin] PHP Notice:  Trying to get property '' of non-object in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:38:14 Europe/Berlin] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:38:45 Europe/Berlin] PHP Notice:  Undefined variable: erros in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:38:45 Europe/Berlin] PHP Notice:  Undefined property: View::$ in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:38:45 Europe/Berlin] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:38:54 Europe/Berlin] PHP Notice:  Undefined property: View::$erros in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:38:54 Europe/Berlin] PHP Warning:  array_key_exists() expects parameter 2 to be array, null given in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 3
+[17-Apr-2021 06:39:25 Europe/Berlin] PHP Notice:  Array to string conversion in C:\xampp\htdocs\listaTelefonica\Views\logarUsuario.phtml on line 14
+[17-Apr-2021 06:43:53 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function Validador() in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml:27
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\View.php(39): require_once()
+#1 C:\xampp\htdocs\listaTelefonica\Lib\View.php(79): View->getConteudo()
+#2 C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php(87): View->mostrarPagina()
+#3 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): UsuarioController->cadastrarUsuario()
+#4 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#5 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Views\cadastroUsuario.phtml on line 27
+[17-Apr-2021 06:46:19 Europe/Berlin] PHP Fatal error:  Uncaught ArgumentCountError: Too few arguments to function View::setError(), 2 passed in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php on line 79 and exactly 3 expected in C:\xampp\htdocs\listaTelefonica\Lib\View.php:25
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php(79): View->setError('nm_u', true)
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): UsuarioController->cadastrarUsuario()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\View.php on line 25
+[17-Apr-2021 06:50:13 Europe/Berlin] PHP Notice:  Array to string conversion in C:\xampp\htdocs\listaTelefonica\Views\logarUsuario.phtml on line 14
+[17-Apr-2021 06:50:46 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Application::err404() in C:\xampp\htdocs\listaTelefonica\Lib\Application.php:45
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#1 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 45
+[17-Apr-2021 06:59:34 Europe/Berlin] PHP Notice:  Undefined variable: o_view in C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php on line 50
+[17-Apr-2021 06:59:34 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function setError() on null in C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php:50
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): ContatoController->manterContatos()
+#1 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#2 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php on line 50

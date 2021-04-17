@@ -9,17 +9,22 @@ require_once "Template/header.phtml";
 		Confirmar Senha: <input type="password" name="c_senha"/><br><br>
 		<button type="submit">Cadastrar</button><br><br>
 	</form>-->
+
 <a class="waves-effect waves-light btn-small" href="?controle=usuario&metodo=logarUsuario">
     <i class="small material-icons left ">arrow_back</i>
 </a>
 
 <div class="container">
+
     <div class="row">
+
         <form class="col s6 grey lighten-5 center-align z-depth-1 offset-l3" method="POST">
+            <div class="row"><span class="red-text"><?php echo $this->getError(); ?></span></div>
             <div class="row ">
                 <div class="input-field col s10 ">
-                    <input id="email" type="text" class="validate " name="u_nome">
+                    <input id="email" type="text" class="validate " name="u_nome" value="<?php if(array_key_exists('u_nome', $_POST))echo $_POST['u_nome']; ?>">
                     <label for="email">Nome Usuario</label>
+                    <span></span>
                 </div>
             </div>
             <div class="row">

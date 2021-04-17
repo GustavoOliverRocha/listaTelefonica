@@ -8,7 +8,7 @@ class Usuario extends ConectaBanco
 
     function __construct()
     {
-
+        $this->criarTabela();
     }
     public function getId()
     {
@@ -164,6 +164,25 @@ class Usuario extends ConectaBanco
             echo "ERROR: ".$error->getMessage();
         }
         return false;
+    }
+
+    public function criarTabela()
+    {
+        $st_query = "create table if not exists tb_usuario(
+            cd_usuario int not null auto_increment,
+            nm_usuario varchar(30),
+            pw_usuario varchar(70),
+            constraint pk_usuario primary key(cd_usuario)
+        );";
+        try
+        {
+            $this->conectar()->exec($st_query);
+        }
+        catch(PDOException $e)
+        {
+            echo $e;
+        }
+        
     }
 }
 ?>

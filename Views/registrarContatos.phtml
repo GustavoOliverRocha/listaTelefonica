@@ -16,6 +16,7 @@ require_once "Template/header.phtml";
 
 	<!--<a href="?controle=contato&metodo=listarContatos">Voltar</a>-->
 <div class="row">
+    <div class="row"><span class="red-text"><?php echo $this->getError(); ?></span></div>
 	<div class="col s12 m4 l8 grey lighten-5 center-align z-depth-1 center-align offset-l1">
 		<div class="row">
 			<a class="waves-effect waves-light btn-small left" href="?controle=contato&metodo=listarContatos">

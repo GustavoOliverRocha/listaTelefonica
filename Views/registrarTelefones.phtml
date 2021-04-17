@@ -22,6 +22,7 @@ require_once "Template/header.phtml";
 		<button type="submit">Confirmar</button>
 	</form>-->
 <div class="row">
+	<div class="row"><span class="red-text"><?php echo $this->getError(); ?></span></div>
 	<div class="col s6 grey lighten-5 center-align z-depth-1 center-align offset-l1">
 		<div class="row">
 			<a class="waves-effect waves-light btn-small left" href="?controle=telefone&metodo=listarTelefones&id_con=<?php echo $v_con->getId();?>">

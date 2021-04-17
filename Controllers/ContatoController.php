@@ -47,7 +47,7 @@ class ContatoController
                         exit("ERROR: no método ".$_GET['metodo']);
                 }
                 else
-                    echo "Campo não pode ficar vazio";
+                    $v->setError("Campo não pode ficar vazio");
                     
             }
         }  

@@ -11,12 +11,11 @@ require_once "Template/header.phtml";
     <div class="row">
         
         <form class="col s6 grey lighten-5 center-align z-depth-1 offset-l3" method="POST">
-            <div class="row"><h6 class="red-text"><?php echo $this->getError(); ?></h6></div>
+            <div class="row"><span class="red-text"><?php echo $this->getError(); ?></span></div>
             <div class="row ">
                 <div class="input-field col s10 ">
-                    <input id="email" type="text" class="validate " name="login">
+                    <input id="email" type="text" class="validate " name="login" value="<?php echo Validador::manterInput('login',$_POST); ?>">
                     <label for="email">Usuario</label>
-
                 </div>
             </div>
             <div class="row">
