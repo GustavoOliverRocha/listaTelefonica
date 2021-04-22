@@ -14,7 +14,7 @@ class ContatoController
     function __construct()
     {
         if(!Validador::isLogado())
-            exit("ERROR: Você não está logado fi ".$_GET['metodo']);
+            exit("ERROR: Você não está logado fii ".$_GET['metodo']);
     }
 
     public function listarContatos()
