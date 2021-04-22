@@ -18,8 +18,8 @@ constraint fk_contato_usuario foreign key(fk_cd_usuario) references tb_usuario(c
 
 create table tb_tel(
 cd_tel int not null auto_increment,
-nr_tel int(15),
-ddd_tel int(3),
+nr_tel char(15),
+ddd_tel char(3),
 tp_tel varchar(15),
 fk_cd_contato int,
 constraint pk_tel primary key(cd_tel),

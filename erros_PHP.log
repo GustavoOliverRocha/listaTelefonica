@@ -872,3 +872,6 @@ Stack trace:
 [22-Apr-2021 05:11:00 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xampp\htdocs\listaTelefonica\Controllers\IndexController.php on line 18
 [22-Apr-2021 05:11:52 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xampp\htdocs\listaTelefonica\Controllers\IndexController.php on line 18
 [22-Apr-2021 05:11:55 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xampp\htdocs\listaTelefonica\Controllers\IndexController.php on line 18
+[22-Apr-2021 05:16:28 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xampp\htdocs\listaTelefonica\Controllers\IndexController.php on line 18
+[22-Apr-2021 05:16:42 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xampp\htdocs\listaTelefonica\Controllers\IndexController.php on line 18
+[22-Apr-2021 05:17:14 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xampp\htdocs\listaTelefonica\Controllers\IndexController.php on line 18
