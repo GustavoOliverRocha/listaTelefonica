@@ -74,7 +74,7 @@ class Contato extends ConectaBanco
              * A função exec() alem de executar o comando SQL ela também retorna o numero de linhas afetadas
              * Assim pode-se usar isso para verificar se realmente houve inserção no banco
              */
-            if($this->conectar()->exec($st_query) > 0)
+            if($this->conectar()->exec($st_query) > 0 || !is_null($this->id_contato))
                 return true;
             else
                 return false;

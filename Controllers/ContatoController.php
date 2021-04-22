@@ -8,7 +8,7 @@ require_once "./Lib/View.php";
  * começarão com o session_start() para carregar os dados do login
  * pois afinal elas só estão disponiveis depois de logado
  */
-session_start();
+//session_start();
 class ContatoController
 {
     function __construct()
@@ -27,8 +27,8 @@ class ContatoController
 
     public function manterContatos()
     {   
-        $c= new Contato();
-        $v= new View("Views/registrarContatos.phtml");
+        $c = new Contato();
+        $v = new View("Views/registrarContatos.phtml");
         if(isset($_REQUEST['id_con']))
             $c->loadById($_REQUEST['id_con'],$_SESSION['id']);
 
@@ -44,7 +44,7 @@ class ContatoController
                     if($c->save())
                         Application::redirecionar("?controle=contato&metodo=listarContatos");
                     else    
-                        exit("ERROR: no método ".$_GET['metodo']);
+                        exit("ERROR: Contato não criado/atualizado no método ".$_GET['metodo']);
                 }
                 else
                     $v->setError("Campo não pode ficar vazio");
@@ -57,21 +57,21 @@ class ContatoController
 
     public function deletarContato()
     {
-        $c= new Contato();
-        $t= new Telefone();
+        $c = new Contato();
+        $t = new Telefone();
         if(isset($_REQUEST['id_con']))
-        {
-            $v_tel = $t->listar($_REQUEST['id_con']);
+        {  
+            if(!$c->loadById($_REQUEST['id_con'],$_SESSION['id']))
+                exit("ERROR: Tentando deletar algo que não é seu, no método ".$_GET['metodo']);
 
+            $v_tel = $t->listar($_REQUEST['id_con']);
             foreach($v_tel as $t)
                 $t->deletar();
 
-            $c->loadById($_REQUEST['id_con'],$_SESSION['id']);
-            
             if($c->deletar())
                 Application::redirecionar("?controle=contato&metodo=listarContatos");
             else    
-                exit("ERROR: no método ".$_GET['metodo']);
+                exit("ERROR: Contato não deletado, no método ".$_GET['metodo']);
         }
 
     }

@@ -1,10 +1,9 @@
 <?php
-var_dump(session_status());
 $v_dados = $this->getDados();
 $v_tel = $v_dados['telefones'];
 $v_con = $v_dados['contato'];
 require_once "Template/header.phtml";
-echo $v_con->getNome();
+//echo $v_con->getNome();
 ?>
 <body>
 	<?php require_once "Template/navbar.phtml"; ?>
@@ -14,7 +13,7 @@ echo $v_con->getNome();
 		<i class="small material-icons left ">arrow_back</i>
 	</a>
 <div class="container">
-	<h6>Telefones de contato de:  <?php echo $v_con->getNome(); ?></h6>
+	<h6>Telefones para contato de:<i class="material-icons">person</i> <?php echo $v_con->getNome(); ?></h6>
 	<table style="width: 80%;" class="highlight responsive-table centered">
 		<thead class="green accent-4" >
 			<tr>
@@ -31,8 +30,14 @@ echo $v_con->getNome();
 			<tr>
 				<td><?php echo "(".$i->getDdd().")".$i->getNum();?></td>
 				<td><?php echo $i->getTipo();?></td>
-                <td><a href="?controle=telefone&metodo=manterTelefone&id_con=<?php echo $v_con->getId();?>&id_tel=<?php echo $i->getId(); ?>">Alterar</a></td>
-                <td><a href="?controle=telefone&metodo=deletarTelefone&id_con=<?php echo $v_con->getId();?>&id_tel=<?php echo $i->getId(); ?>">Apagar</a></td>
+                <td>
+                	<a href="?controle=telefone&metodo=manterTelefone&id_con=<?php echo $v_con->getId();?>&id_tel=<?php echo $i->getId(); ?>">Alterar<i class="material-icons">create</i>
+                	</a>
+                </td>
+                <td>
+                	<a href="?controle=telefone&metodo=deletarTelefone&id_con=<?php echo $v_con->getId();?>&id_tel=<?php echo $i->getId(); ?>">Apagar<i class="material-icons red-text">delete_forever</i>
+                	</a>
+                </td>
 			</tr>
 			<?php } ?>
 		</tbody>

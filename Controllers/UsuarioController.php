@@ -6,16 +6,10 @@ class UsuarioController
     public function logarUsuario()
     {
         $o_view = new View("Views/logarUsuario.phtml");
-        if(session_status() == 2)
-        {
-            session_start();
-            if(Validador::isLogado())
-                Application::redirecionar("?controle=contato&metodo=listarContatos");
-            else
-                deslogar();
-        }
+        if(Validador::isLogado())
+            Application::redirecionar("?controle=contato&metodo=listarContatos");
 
-        else if(isset($_POST['login'],$_POST['senha']))
+        if(count($_POST) > 0)
         {
             if(strlen($_POST['login']) > 0 && strlen($_POST['senha']) > 0)
             {
@@ -46,7 +40,8 @@ class UsuarioController
         session_start();
         session_unset();
         session_destroy();
-        session_register_shutdown ( );
+        session_register_shutdown();
+        
         if(!Validador::isLogado() && session_status()==1)
             Application::redirecionar("index.php");
         else    
@@ -58,15 +53,12 @@ class UsuarioController
         $o_view = new View("Views/cadastroUsuario.phtml");
         if(count($_POST) > 0)
         {
-            if(strlen($_POST['u_nome']) > 0 && strlen($_POST['u_senha']) > 0 && strlen($_POST['c_senha']) > 0)
+            if(Validador::postUsuario())
             {
                 if(strcmp($_POST['u_senha'],$_POST['c_senha']) == 0)
                 {
                     $u = new Usuario();
-            
-                    if(isset($_REQUEST['id']))
-                        $u->setId($_REQUEST['id']);
-    
+                    
                     if(!$u->loadByUsuario($_POST['u_nome']))
                     {
                         $u->setNome($_POST['u_nome']);

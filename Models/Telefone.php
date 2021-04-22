@@ -72,7 +72,7 @@ class Telefone extends ConectaBanco
             $st_query = "UPDATE tb_tel set ddd_tel = $this->int_ddd, nr_tel = $this->int_num, tp_tel = '$this->st_tipo' WHERE cd_tel = $this->id_tel;";
         try
         {
-            if($this->conectar()->exec($st_query)>0)
+            if($this->conectar()->exec($st_query) > 0 || !is_null($this->id_tel))
                 return true;
             else
                 return false;
@@ -160,8 +160,8 @@ class Telefone extends ConectaBanco
     {
         $st_query = "create table if not exists tb_tel(
                         cd_tel int not null auto_increment,
-                        nr_tel int(15),
-                        ddd_tel int(3),     
+                        nr_tel char(15),
+                        ddd_tel char(3),     
                         tp_tel varchar(15),
                         fk_cd_contato int,
                         constraint pk_tel primary key(cd_tel),

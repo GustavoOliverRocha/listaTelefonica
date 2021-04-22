@@ -686,3 +686,189 @@ Stack trace:
 #1 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
 #2 {main}
   thrown in C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php on line 50
+[21-Apr-2021 07:28:40 Europe/Berlin] PHP Notice:  Undefined index: tp_tel in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 23
+[21-Apr-2021 08:24:06 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetchObject() on bool in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php:124
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php(67): Telefone->loadById('42', '')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): TelefoneController->deletarTelefone()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 124
+[21-Apr-2021 08:25:22 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetchObject() on bool in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php:124
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php(67): Telefone->loadById('42', '')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): TelefoneController->deletarTelefone()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 124
+[21-Apr-2021 08:29:33 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetchObject() on bool in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php:124
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php(67): Telefone->loadById('20', '')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): TelefoneController->deletarTelefone()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 124
+[21-Apr-2021 08:30:01 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetchObject() on bool in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php:124
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php(67): Telefone->loadById('19', '')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): TelefoneController->deletarTelefone()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Telefone.php on line 124
+[22-Apr-2021 01:00:32 Europe/Berlin] PHP Notice:  Undefined index: id in C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php on line 37
+[22-Apr-2021 01:00:32 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetchObject() on bool in C:\xampp\htdocs\listaTelefonica\Models\Contato.php:136
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\ContatoController.php(37): Contato->loadById('35', NULL)
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): ContatoController->manterContatos()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Contato.php on line 136
+[22-Apr-2021 01:00:57 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Application::err404() in C:\xampp\htdocs\listaTelefonica\Lib\Application.php:50
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#1 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 50
+[22-Apr-2021 01:23:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\listaTelefonica\Views\listarTelefones.phtml on line 4
+[22-Apr-2021 01:23:02 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\listaTelefonica\Views\listarTelefones.phtml on line 5
+[22-Apr-2021 01:23:02 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getNome() on null in C:\xampp\htdocs\listaTelefonica\Views\listarTelefones.phtml:7
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\View.php(46): require_once()
+#1 C:\xampp\htdocs\listaTelefonica\Lib\View.php(86): View->getConteudo()
+#2 C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php(27): View->mostrarPagina()
+#3 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): TelefoneController->listarTelefones()
+#4 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#5 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Views\listarTelefones.phtml on line 7
+[22-Apr-2021 01:23:18 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\listaTelefonica\Views\listarTelefones.phtml on line 4
+[22-Apr-2021 01:23:18 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\listaTelefonica\Views\listarTelefones.phtml on line 5
+[22-Apr-2021 01:23:18 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getNome() on null in C:\xampp\htdocs\listaTelefonica\Views\listarTelefones.phtml:7
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\View.php(46): require_once()
+#1 C:\xampp\htdocs\listaTelefonica\Lib\View.php(86): View->getConteudo()
+#2 C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php(27): View->mostrarPagina()
+#3 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): TelefoneController->listarTelefones()
+#4 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#5 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Views\listarTelefones.phtml on line 7
+[22-Apr-2021 01:24:06 Europe/Berlin] PHP Parse error:  syntax error, unexpected '$v' (T_VARIABLE) in C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php on line 25
+[22-Apr-2021 01:27:19 Europe/Berlin] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\listaTelefonica\Views\listarTelefones.phtml on line 34
+[22-Apr-2021 01:27:57 Europe/Berlin] PHP Warning:  count(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\listaTelefonica\Views\listarTelefones.phtml on line 34
+[22-Apr-2021 01:28:16 Europe/Berlin] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\listaTelefonica\Views\listarTelefones.phtml on line 34
+[22-Apr-2021 01:28:50 Europe/Berlin] PHP Warning:  sizeof(): Parameter must be an array or an object that implements Countable in C:\xampp\htdocs\listaTelefonica\Views\listarTelefones.phtml on line 35
+[22-Apr-2021 01:35:43 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetchObject() on bool in C:\xampp\htdocs\listaTelefonica\Models\Contato.php:136
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php(22): Contato->loadById('', '59')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): TelefoneController->listarTelefones()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Contato.php on line 136
+[22-Apr-2021 01:37:54 Europe/Berlin] PHP Notice:  Undefined variable: v in C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php on line 27
+[22-Apr-2021 01:37:54 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function mostrarPagina() on null in C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php:27
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): TelefoneController->listarTelefones()
+#1 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#2 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php on line 27
+[22-Apr-2021 01:41:51 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\listaTelefonica\Views\listarTelefones.phtml on line 4
+[22-Apr-2021 01:41:51 Europe/Berlin] PHP Notice:  Trying to access array offset on value of type null in C:\xampp\htdocs\listaTelefonica\Views\listarTelefones.phtml on line 5
+[22-Apr-2021 01:41:51 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function getNome() on null in C:\xampp\htdocs\listaTelefonica\Views\listarTelefones.phtml:7
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\View.php(46): require_once()
+#1 C:\xampp\htdocs\listaTelefonica\Lib\View.php(86): View->getConteudo()
+#2 C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php(28): View->mostrarPagina()
+#3 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(53): TelefoneController->listarTelefones()
+#4 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#5 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Views\listarTelefones.phtml on line 7
+[22-Apr-2021 02:03:24 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined method Application::err404() in C:\xampp\htdocs\listaTelefonica\Lib\Application.php:45
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#1 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 45
+[22-Apr-2021 02:13:17 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'View' not found in C:\xampp\htdocs\listaTelefonica\Lib\Application.php:45
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#1 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 45
+[22-Apr-2021 02:28:13 Europe/Berlin] PHP Notice:  Undefined variable: v in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 46
+[22-Apr-2021 02:28:13 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function setError() on null in C:\xampp\htdocs\listaTelefonica\Lib\Application.php:46
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#1 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 46
+[22-Apr-2021 02:29:15 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'View' not found in C:\xampp\htdocs\listaTelefonica\Lib\Application.php:46
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#1 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 46
+[22-Apr-2021 02:31:38 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'View' not found in C:\xampp\htdocs\listaTelefonica\Lib\Application.php:46
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#1 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 46
+[22-Apr-2021 02:33:30 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'View' not found in C:\xampp\htdocs\listaTelefonica\Lib\Application.php:46
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#1 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 46
+[22-Apr-2021 02:34:19 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'View' not found in C:\xampp\htdocs\listaTelefonica\Lib\Application.php:46
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#1 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 46
+[22-Apr-2021 02:34:21 Europe/Berlin] PHP Fatal error:  Uncaught Error: Class 'View' not found in C:\xampp\htdocs\listaTelefonica\Lib\Application.php:46
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#1 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Lib\Application.php on line 46
+[22-Apr-2021 02:41:56 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetchObject() on bool in C:\xampp\htdocs\listaTelefonica\Models\Contato.php:136
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php(22): Contato->loadById('41]', '59')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(54): TelefoneController->listarTelefones()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Contato.php on line 136
+[22-Apr-2021 02:42:18 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to a member function fetchObject() on bool in C:\xampp\htdocs\listaTelefonica\Models\Contato.php:136
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Controllers\TelefoneController.php(22): Contato->loadById('41]', '59')
+#1 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(54): TelefoneController->listarTelefones()
+#2 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#3 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Models\Contato.php on line 136
+[22-Apr-2021 04:56:12 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function deslogar() in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php:15
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(54): UsuarioController->logarUsuario()
+#1 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#2 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php on line 15
+[22-Apr-2021 04:56:31 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function deslogar() in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php:15
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(54): UsuarioController->logarUsuario()
+#1 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#2 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php on line 15
+[22-Apr-2021 04:57:10 Europe/Berlin] PHP Parse error:  syntax error, unexpected 'else' (T_ELSE) in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php on line 15
+[22-Apr-2021 04:57:47 Europe/Berlin] PHP Fatal error:  Uncaught Error: Call to undefined function deslogar() in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php:13
+Stack trace:
+#0 C:\xampp\htdocs\listaTelefonica\Lib\Application.php(54): UsuarioController->logarUsuario()
+#1 C:\xampp\htdocs\listaTelefonica\index.php(6): Application->importarController()
+#2 {main}
+  thrown in C:\xampp\htdocs\listaTelefonica\Controllers\UsuarioController.php on line 13
+[22-Apr-2021 05:04:03 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 6
+[22-Apr-2021 05:04:03 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 6
+[22-Apr-2021 05:04:36 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 6
+[22-Apr-2021 05:04:39 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 6
+[22-Apr-2021 05:04:39 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 6
+[22-Apr-2021 05:05:07 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 6
+[22-Apr-2021 05:05:07 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 6
+[22-Apr-2021 05:05:10 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 6
+[22-Apr-2021 05:05:12 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 6
+[22-Apr-2021 05:05:34 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 10
+[22-Apr-2021 05:05:45 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 6
+[22-Apr-2021 05:05:50 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xampp\htdocs\listaTelefonica\Controllers\IndexController.php on line 18
+[22-Apr-2021 05:06:01 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 6
+[22-Apr-2021 05:06:01 Europe/Berlin] PHP Notice:  session_start(): A session had already been started - ignoring in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 6
+[22-Apr-2021 05:10:26 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xampp\htdocs\listaTelefonica\Lib\Validador.php on line 11
+[22-Apr-2021 05:11:00 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xampp\htdocs\listaTelefonica\Controllers\IndexController.php on line 18
+[22-Apr-2021 05:11:52 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xampp\htdocs\listaTelefonica\Controllers\IndexController.php on line 18
+[22-Apr-2021 05:11:55 Europe/Berlin] PHP Warning:  session_destroy(): Trying to destroy uninitialized session in C:\xampp\htdocs\listaTelefonica\Controllers\IndexController.php on line 18

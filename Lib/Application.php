@@ -42,33 +42,25 @@ class Application
         if(file_exists($controllerFile))
             require_once $controllerFile;
         else   
-            $this->err404("Arquivo $controllerFile não encontrado ou inexistente.");//throw new Exception("Arquivo $controllerFile não encontrado ou existente.");
+            exit("Arquivo $controllerFile não encontrado ou inexistente.");//throw new Exception("Arquivo $controllerFile não encontrado ou existente.");
 
         if(class_exists($classe))
             $c = new $classe;
-        else   
-            $this->err404("Classe $classe não encontrada ou inexistente.");//throw new Exception("Classe $classe não encontrada ou existente.  ");
+        else
+
+            exit("Classe $classe não encontrada ou inexistente.");//throw new Exception("Classe $classe não encontrada ou existente.  ");
         
         if(method_exists($classe,$metodo))
             $c->$metodo();
         else
         {
             $v = new View("Views/pagina404.phtml");
-            $v->setError("Metodo $metodo não encontrado ou inexistente.");//throw new Exception("Metodo $metodo não encontrado ou existente.");
+            $v->setError("Metodo \"$metodo()\" não encontrado ou inexistente.");//throw new Exception("Metodo $metodo não encontrado ou existente.");
             $v->mostrarPagina();
         }
 
     }
-    
-   /* public function err404($msg)
-    {
-        if(file_exists("./Lib/View.php"))
-            require_once "./Lib/View.php";
-        $v = new View("Views/pagina404.phtml");
-        echo $msg;
-        $v->mostrarPagina();
-    }*/
-
+       
     public function redirecionar($url)
     {
         header("Location: $url");

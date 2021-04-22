@@ -1,9 +1,4 @@
 <?php
-//session_start();
-var_dump(session_status());
-
-if(!Validador::isLogado())
-    echo "Não tem ninguem logado";
 require_once "Template/header.phtml";
 ?>
 <body>
@@ -14,7 +9,7 @@ require_once "Template/header.phtml";
             <div class="row"><span class="red-text"><?php echo $this->getError(); ?></span></div>
             <div class="row ">
                 <div class="input-field col s10 ">
-                    <input id="email" type="text" class="validate " name="login" value="<?php echo Validador::manterInput('login',$_POST); ?>">
+                    <input id="email" type="text" class="validate " name="login" value="<?php echo Validador::manterInput('login',''); ?>">
                     <label for="email">Usuario</label>
                 </div>
             </div>

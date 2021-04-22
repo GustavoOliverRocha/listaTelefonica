@@ -1,5 +1,4 @@
 <?php
-var_dump(session_status());
 $v_dados = $this->getDados();
 $v_contatos = $v_dados['contatos'];
 require_once "Template/header.phtml";
@@ -26,13 +25,13 @@ require_once "Template/header.phtml";
         <form class="" method="POST">
             <div class="row ">
                 <div class="input-field col s10 ">
-                    <input id="name" type="text" class="validate" name="nm_con" value='<?php echo $v_contatos->getNome();?>' required>
+                    <input id="name" type="text" class="validate" name="nm_con" maxlength="30" value='<?php echo Validador::manterInput('nm_con',$v_contatos->getNome()); ?>' required>
                     <label for="name">Nome Contato</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s10">
-                    <input id="email" type="text" class="validate" name="email_con" value='<?php echo $v_contatos->getEmail();?>' placeholder="youremail@example.com" required> 
+                    <input id="email" type="text" class="validate" name="email_con" maxlength="40" value='<?php echo Validador::manterInput('email_con',$v_contatos->getEmail());?>' placeholder="youremail@example.com" required> 
                     <label for="email">E-mail</label>    
                 </div>
             </div>

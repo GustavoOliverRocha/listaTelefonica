@@ -1,5 +1,4 @@
 <?php
-var_dump(session_status());
 $v_dados = $this->getDados();
 $v_tel = $v_dados['telefone'];
 $v_con = $v_dados['contato'];
@@ -32,25 +31,25 @@ require_once "Template/header.phtml";
         <form class="" method="POST">
             <div class="row ">
                 <div class="input-field col s2 ">
-                    <input id="ddd" maxlength="3" type="text" class="validate" name="ddd_tel" placeholder="(xxx)" value="<?php echo $v_tel->getDdd();?>" required>
+                    <input id="ddd" maxlength="3" type="text" class="validate" name="ddd_tel" placeholder="(xxx)" value='<?php echo Validador::manterInput('ddd_tel',$v_tel->getDdd());?>' required>
                     <label for="ddd">DDD</label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="num" type="text" class="validate" name="nr_tel" placeholder="xxxx-xxxx" value="<?php echo $v_tel->getNum();?>"required> 
+                    <input id="num" maxlength="15" type="text" class="validate" name="nr_tel" placeholder="xxxx-xxxx" value="<?php echo Validador::manterInput('nr_tel',$v_tel->getNum());?>"required> 
                     <label for="num">Numero Telefone</label>    
                 </div>
             </div>
             <div class="row">
             		<div class="input-field col 5">
-			    		<select name="tp_tel">
-					    	<option value="<?php echo $v_tel->getTipo();?>" selected>
+			    		<select class="browser-default" name="tp_tel" required>
+					    	<option value="<?php echo Validador::manterInput('tp_tel',$v_tel->getTipo());?>" selected>
 					    		<?php echo $v_tel->getTipo();?>	
 					    	</option>
-							<option value="Fixo">Fixo</option>
-							<option value="Celular">Celular</option>
-							<option value="Comercial">Comercial</option>
+							<option value="Fixo" >Fixo</option>
+							<option value="Celular" >Celular</option>
+							<option value="Comercial" >Comercial</option>
 			    		</select>
-			    		<label>Tipo</label>
+			    		<label></label>
 			 		</div>
             </div>
             <div class="row">

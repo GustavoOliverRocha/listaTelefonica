@@ -1,5 +1,4 @@
 <?php
-var_dump(session_status());
 $v_dados = $this->getDados();
 $v_contatos = $v_dados['contatos'];
 require_once "Template/header.phtml";
@@ -18,7 +17,7 @@ require_once "Template/header.phtml";
                     <th colspan="3">
                         Ações
                         <a class="btn-floating waves-effect waves-light  green accent-3 right" href="?controle=contato&metodo=manterContatos">
-                            <i class="material-icons">add</i>
+                            <i class="material-icons">person_add</i>
                         </a>
                     </th>
                 </tr>
@@ -28,9 +27,21 @@ require_once "Template/header.phtml";
                 <tr> 
                     <td><?php echo $i->getNome(); ?></td>
                     <td><?php echo $i->getEmail(); ?></td>
-                    <td><a href="?controle=telefone&metodo=listarTelefones&id_con=<?php echo $i->getId();?>">Ver Telefones</a></td>
-                    <td><a href="?controle=contato&metodo=manterContatos&id_con=<?php echo $i->getId();?>">Alterar</a></td>
-                    <td><a href="?controle=contato&metodo=deletarContato&id_con=<?php echo $i->getId();?>">Apagar</a></td>    
+                    <td>
+                        <a href="?controle=telefone&metodo=listarTelefones&id_con=<?php echo $i->getId();?>">
+                            Ver Telefones<i class="material-icons green-text">local_phone</i>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="?controle=contato&metodo=manterContatos&id_con=<?php echo $i->getId();?>">
+                            Alterar<i class="material-icons">create</i>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="?controle=contato&metodo=deletarContato&id_con=<?php echo $i->getId();?>">
+                            Apagar<i class="material-icons red-text">delete_forever</i>
+                        </a>
+                    </td>    
                 </tr>
                 <?php } ?>
             </tbody>

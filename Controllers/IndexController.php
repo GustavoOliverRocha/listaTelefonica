@@ -9,7 +9,7 @@ class IndexController
 {
     public function indexRedirect()
     {
-        session_start();
+       // session_start();
         if(Validador::isLogado())
             Application::redirecionar("?controle=contato&metodo=listarContatos");
         else
