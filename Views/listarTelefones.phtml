@@ -9,39 +9,47 @@ require_once "Template/header.phtml";
 	<?php require_once "Template/navbar.phtml"; ?>
 	<!--<a href="?controle=telefone&metodo=manterTelefone&id_con=<?php echo $v_con->getId(); ?>">Inserir Telefone</a>
 	<a href="?controle=contato&metodo=listarContatos">Voltar</a>-->
-	<a class="waves-effect waves-light btn-small" href="?controle=contato&metodo=listarContatos">
-		<i class="small material-icons left ">arrow_back</i>
-	</a>
 <div class="container">
-	<h6>Telefones para contato de:<i class="material-icons">person</i> <?php echo $v_con->getNome(); ?></h6>
-	<table style="width: 80%;" class="highlight responsive-table centered">
-		<thead class="green accent-4" >
-			<tr>
-				<th class="center">Número</th>
-				<th class="center">Tipo</th>
-				<th colspan="2" class="center">
-					Ações
-					<a class="waves-effect waves-light btn btn-small right" href="?controle=telefone&metodo=manterTelefone&id_con=<?php echo $v_con->getId(); ?>"><i class="material-icons left">add</i>Tel</a>
-				</th>
-			</tr>
-		</thead>
-		<tbody class="grey lighten-2">
-			<?php foreach($v_tel as $i){?>
-			<tr>
-				<td><?php echo "(".$i->getDdd().")".$i->getNum();?></td>
-				<td><?php echo $i->getTipo();?></td>
-                <td>
-                	<a href="?controle=telefone&metodo=manterTelefone&id_con=<?php echo $v_con->getId();?>&id_tel=<?php echo $i->getId(); ?>">Alterar<i class="material-icons">create</i>
-                	</a>
-                </td>
-                <td>
-                	<a href="?controle=telefone&metodo=deletarTelefone&id_con=<?php echo $v_con->getId();?>&id_tel=<?php echo $i->getId(); ?>">Apagar<i class="material-icons red-text">delete_forever</i>
-                	</a>
-                </td>
-			</tr>
-			<?php } ?>
-		</tbody>
-	</table>
+	<div class="row">
+		
+	
+	<div class="col m12">
+		<a class="waves-effect waves-light btn-small" href="?controle=contato&metodo=listarContatos">
+			<i class="small material-icons left ">arrow_back</i> Lista de Contatos
+		</a>
+		<a class="waves-effect waves-light btn btn-right right" href="?controle=telefone&metodo=manterTelefone&id_con=<?php echo $v_con->getId(); ?>"><i class="material-icons left">add</i> Novo Telefone</a>
+	</div>
+	<div class="col m12">
+		<h6>Telefones para contato de:<i class="material-icons">person</i> <?php echo $v_con->getNome(); ?></h6>
+		<table style="width: 80%;" class="highlight responsive-table centered">
+			<thead class="green accent-4" >
+					<th class="center">Número</th>
+					<th class="center">Tipo</th>
+					<th colspan="2" class="center">
+						Ações
+
+					</th>
+			</thead>
+			<tbody class="grey lighten-2">
+				<?php foreach($v_tel as $i){?>
+				<tr>
+					<td><?php echo "(".$i->getDdd().")".$i->getNum();?></td>
+					<td><?php echo $i->getTipo();?></td>
+	                <td>
+	                	<a href="?controle=telefone&metodo=manterTelefone&id_con=<?php echo $v_con->getId();?>&id_tel=<?php echo $i->getId(); ?>">Alterar<i class="material-icons">create</i>
+	                	</a>
+	                </td>
+	                <td>
+	                	<a href="?controle=telefone&metodo=deletarTelefone&id_con=<?php echo $v_con->getId();?>&id_tel=<?php echo $i->getId(); ?>">Apagar<i class="material-icons red-text">delete_forever</i>
+	                	</a>
+	                </td>
+				</tr>
+				<?php } ?>
+			</tbody>
+		</table>		
+	</div>
+	</div>
+	
 </div>
 	<?php require_once "Template/footer.phtml"; ?>
 </body>

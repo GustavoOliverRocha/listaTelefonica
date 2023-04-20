@@ -11,12 +11,12 @@ class IndexController
     {
        // session_start();
         if(Validador::isLogado())
-            Application::redirecionar("?controle=contato&metodo=listarContatos");
+            (new Application)->redirecionar("?controle=contato&metodo=listarContatos");
         else
         {
             session_unset();
-            session_destroy();
-            Application::redirecionar("?controle=usuario&metodo=logarUsuario");
+            //session_destroy();
+            (new Application)->redirecionar("?controle=usuario&metodo=logarUsuario");
         }
 
     }

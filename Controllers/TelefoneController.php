@@ -2,7 +2,6 @@
 require_once "./Models/Telefone.php";
 require_once "./Models/Contato.php";
 require_once "./Lib/View.php";
-//session_start();
 
 class TelefoneController
 {

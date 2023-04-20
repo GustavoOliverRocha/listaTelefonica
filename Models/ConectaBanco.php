@@ -13,9 +13,9 @@
 abstract class ConectaBanco
 {   
     private $servidor = "localhost";
-    private $usuario = "root";
-    private $senha = "";
-    private $banco = "db_listacontatos";
+    private $usuario = "debian-sys-maint";
+    private $senha = "OflgXYnLjHQvE5IK";
+    private $banco = "tel";
     private $con;
     protected $st_query;
 

@@ -61,7 +61,7 @@ class Application
 
     }
        
-    public function redirecionar($url)
+    static function redirecionar($url)
     {
         header("Location: $url");
     }
