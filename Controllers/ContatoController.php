@@ -9,7 +9,7 @@ require_once "./Lib/View.php";
  * pois afinal elas só estão disponiveis depois de logado
  */
 //session_start();
-class ContatoController
+class ContatoController 
 {
     function __construct()
     {
@@ -41,8 +41,10 @@ class ContatoController
                     $c->setNome($_POST['nm_con']);
                     $c->setEmail($_POST['email_con']);
                     $c->setUsuarioId($_SESSION['id']);
-                    if($c->save())
+                    if($c->save()){
                         Application::redirecionar("?controle=contato&metodo=listarContatos");
+                        $_SESSION['__MSG_SUCCESS__'] = "Contato registrado/alterado com sucesso.";                        
+                    }
                     else    
                         exit("ERROR: Contato não criado/atualizado no método ".$_GET['metodo']);
                 }
@@ -73,6 +75,10 @@ class ContatoController
             else    
                 exit("ERROR: Contato não deletado, no método ".$_GET['metodo']);
         }
+
+    }
+
+    static function ActionMessage($type,$msg){
 
     }
 }

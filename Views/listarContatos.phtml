@@ -5,18 +5,19 @@ require_once "Template/header.phtml";
 ?>
 <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
 <body>
-    <?php require_once "Template/navbar.phtml"; ?>
+    <?php /*?controle=contato&metodo=manterContatos*/ require_once "Template/navbar.phtml"; ?>
     <br><br>
 <div class="container">
     <div class="row">
     <div class="col s12">
-        <a 
-        class="btn-floating waves-effect waves-light  green accent-3 right tooltipped" 
-        href="?controle=contato&metodo=manterContatos"
+        <button onclick="cleanForm()" 
+        data-target="modal-form-contato" 
+        class="btn-floating waves-effect waves-light  green accent-3 right tooltipped modal-trigger" 
+        href=""
         data-position="top" 
         data-tooltip="Adicionar Contato">
             <i class="material-icons">person_add</i>
-        </a>   
+        </button>   
     </div>
     <div class="col s12">
         <table id="tb_contatos" class="highlight striped centered">
@@ -31,7 +32,7 @@ require_once "Template/header.phtml";
             </thead>
             <tbody class="">
                 <?php foreach($v_contatos as $i) { ?>
-                <tr> 
+                <tr id="row_<?php echo $i->getId();?>"> 
                     <td><?php echo $i->getNome(); ?></td>
                     <td><?php echo $i->getEmail(); ?></td>
                     <td>
@@ -41,18 +42,21 @@ require_once "Template/header.phtml";
                             data-tooltip="Ver Telefones">
                             <i class="material-icons sleft">local_phone</i><!--Ver Telefones-->
                         </a>
-                        <a href="?controle=contato&metodo=manterContatos&id_con=<?php echo $i->getId();?>"
-                            class="waves-effect waves-light btn indigo accent-4 tooltipped"
+                        <button href="?controle=contato&metodo=manterContatos&id_con=<?php echo $i->getId();?>"
+                            onclick="editContato('<?php echo $i->getId();?>','<?php echo $i->getNome();?>','<?php echo $i->getEmail();?>')"
+                            class="modal-trigger waves-effect waves-light btn indigo accent-4 tooltipped"
+                            data-target="modal-form-contato" 
                             data-position="top" 
-                            data-tooltip="Editar">
+                            data-tooltip="Editar"->
                             <i class="material-icons">create</i> <!--Alterar-->
-                        </a>
+                        </button>
 
-                        <button href="?controle=contato&metodo=deletarContato&id_con=<?php echo $i->getId();?>"
-                            id="remove-contato"
-                            class="waves-effect waves-light btn red darken-4 tooltipped remove-contato modal-trigger"
+                        <button
+                            id=""
+                            class="waves-effect waves-light btn red darken-4 tooltipped remove-contato modal-trigger remove-contato"
                             data-target="modal-remove" 
                             data-id="<?php echo $i->getId();?>"
+                            value="<?php echo $i->getId();?>"
                             data-position="top" 
                             data-tooltip="Remover">
                             <i class="material-icons">delete_forever</i> <!--Apagar-->
@@ -63,21 +67,59 @@ require_once "Template/header.phtml";
             </tbody>
         </table>
         <?php require_once "Views/Template/modal-remove.php"; ?>
+        <?php require_once "Views/Template/modal-form-contato.php"; ?>
     </div>
 </div>
 </div>
-    <?php require_once "Template/footer.phtml"; ?>
+    <?php require_once "Template/footer.phtml"; ?> 
     <script type="text/javascript">
-$('#modal-remove').modal();
-    $('.remove-contato').click(()=>{
-       // $('#modal-remove').show();
+    var contato_id = null;
+    const ALERT_SUCCESS = (text)=>{
+        $.toast({
+            heading: 'Ação Sucedida',
+            text: text,
+            showHideTransition: 'slide',
+            icon: 'success',
+            position: 'top-center'
+        });
+    }
+    $('#modal-remove').modal();
+    $('#modal-form-contato').modal();
+
+    $('.remove-contato').click(function(){
+        let id = $(this).data('id');
+        contato_id = id;
     });    
+
     $('#btn-confirma-remove').click(()=>{
-        //alert('Contato Removido')
+        let url = '?controle=contato&metodo=deletarContato&id_con='+contato_id;
+        $.get(url).then(()=>{
+            $('#row_'+contato_id).fadeOut();
+            ALERT_SUCCESS('Contato Removido com Sucesso');
+        })
     });
 
     $('.tooltipped').tooltip();
 
+    function editContato(id,name,email){
+        $('#titulo').html('Editar Contato');
+        $('#id_con').val(id);
+        $('#name').val(name);
+        $('#email').val(email);
+    }
+
+    function cleanForm(){
+        $('#titulo').html('Novo Contato');
+        $('#id_con').val('');
+        $('#name').val('');
+        $('#email').val('');
+    }
     </script>
+    <?php if(isset($_SESSION['__MSG_SUCCESS__'])): ?>
+        <script type="text/javascript">
+            ALERT_SUCCESS('<?= $_SESSION['__MSG_SUCCESS__'] ?>');
+        </script>
+    <?php unset($_SESSION['__MSG_SUCCESS__']) ?>
+    <?php endif; ?>
 </body>
 </html>
