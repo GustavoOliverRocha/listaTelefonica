@@ -3,7 +3,6 @@ $v_dados = $this->getDados();
 $v_tel = $v_dados['telefones'];
 $v_con = $v_dados['contato'];
 require_once "Template/header.phtml";
-//echo $v_con->getNome();
 ?>
 <body>
 	<?php require_once "Template/navbar.phtml"; ?>
@@ -11,45 +10,112 @@ require_once "Template/header.phtml";
 	<a href="?controle=contato&metodo=listarContatos">Voltar</a>-->
 <div class="container">
 	<div class="row">	
-	<div class="col m12">
-		<a class="waves-effect waves-light btn-small" href="?controle=contato&metodo=listarContatos">
-			<i class="small material-icons left ">arrow_back</i> Lista de Contatos
-		</a>
-		<a class="waves-effect waves-light btn btn-right right" href="?controle=telefone&metodo=manterTelefone&id_con=<?php echo $v_con->getId(); ?>"><i class="material-icons left">add</i> Novo Telefone</a>
+		<div class="col m12">
+			<a class="waves-effect waves-light btn-small" href="?controle=contato&metodo=listarContatos">
+				<i class="small material-icons left ">arrow_back</i> Lista de Contatos
+			</a>
+			<!--<a class="waves-effect waves-light btn btn-right right" href="?controle=telefone&metodo=manterTelefone&id_con=<?php echo $v_con->getId(); ?>"><i class="material-icons left">add</i> Novo Telefone</a>-->
+			<button
+				onclick="cleanForm()" 
+				class="modal-trigger waves-effect waves-light btn indigo accent-4 tooltipped btn-right right"                            
+				data-target="modal-form-telefone" 
+		        data-position="top" 
+		        data-tooltip="Editar">
+				<i class="material-icons left">add</i> Novo Telefone</a>
+			</button>
+		</div>
+		<div class="col m12">
+			<h6>
+				Telefones para contato de:<i class="material-icons">person</i> <?php echo $v_con->getNome(); ?>
+			</h6>
+			<table class="highlight centered">
+				<thead>
+						<th class="center">Número</th>
+						<th class="center">Tipo</th>
+						<th colspan="2" class="center">
+							Ações
+						</th>
+				</thead>
+				<tbody class="grey lighten-2">
+					<?php foreach($v_tel as $i){?>
+					<tr id="row_<?= $i->getId() ?>">
+						<td><?php echo "(".$i->getDdd().")".$i->getNum();?></td>
+						<td><?php echo $i->getTipo();?></td>
+		                <td>
+		                	<!--<a href="?controle=telefone&metodo=manterTelefone&id_con=<?php echo $v_con->getId();?>&id_tel=<?php echo $i->getId(); ?>">Alterar<i class="material-icons">create</i>
+		                	</a>-->	       
+		                	<button
+		                		onclick="editTelefone('<?= $i->getId() ?>','<?= $i->getDdd() ?>','<?= $i->getNum() ?>','<?= $i->getTipo() ?>')"
+		                		class="modal-trigger waves-effect waves-light btn indigo accent-4 tooltipped"                            
+		                		data-target="modal-form-telefone" 
+	                            data-position="top" 
+	                            data-tooltip="Editar">
+		                		<i class="material-icons">create</i>
+		                	</button>
+		                	<button
+		                		class="waves-effect waves-light btn red darken-4 tooltipped remove-telefone modal-trigger remove-telefone"
+	                            data-id="<?php echo $i->getId();?>"
+	                            value="<?php echo $i->getId();?>"                            
+		                		data-target="modal-remove" 
+	                            data-position="top" 
+	                            data-tooltip="Remover">
+		                		<i class="material-icons white-text">delete_forever</i>
+		                	</button>
+		                	<!--<a href="?controle=telefone&metodo=deletarTelefone&id_con=<?php echo $v_con->getId();?>&id_tel=<?php echo $i->getId(); ?>">Apagar<i class="material-icons red-text">delete_forever</i>
+		                	</a>-->
+		                </td>
+					</tr>
+					<?php } ?>
+				</tbody>
+			</table>
+	        <?php require_once "Views/Template/modal-remove.php"; ?>
+	        <?php require_once "Views/Template/modal-form-telefone.php"; ?>	
+		</div>
 	</div>
-	<div class="col m12">
-		<h6>
-			Telefones para contato de:<i class="material-icons">person</i> <?php echo $v_con->getNome(); ?>
-		</h6>
-		<table class="highlight responsive-table centered">
-			<thead class="" >
-					<th class="center">Número</th>
-					<th class="center">Tipo</th>
-					<th colspan="2" class="center">
-						Ações
-					</th>
-			</thead>
-			<tbody class="grey lighten-2">
-				<?php foreach($v_tel as $i){?>
-				<tr>
-					<td><?php echo "(".$i->getDdd().")".$i->getNum();?></td>
-					<td><?php echo $i->getTipo();?></td>
-	                <td>
-	                	<a href="?controle=telefone&metodo=manterTelefone&id_con=<?php echo $v_con->getId();?>&id_tel=<?php echo $i->getId(); ?>">Alterar<i class="material-icons">create</i>
-	                	</a>
-	                </td>
-	                <td>
-	                	<a href="?controle=telefone&metodo=deletarTelefone&id_con=<?php echo $v_con->getId();?>&id_tel=<?php echo $i->getId(); ?>">Apagar<i class="material-icons red-text">delete_forever</i>
-	                	</a>
-	                </td>
-				</tr>
-				<?php } ?>
-			</tbody>
-		</table>		
-	</div>
-	</div>
-	
 </div>
 	<?php require_once "Template/footer.phtml"; ?>
+<script type="text/javascript">
+    var telefone_id = null;
+    var contato_id = '<?= $v_con->getId(); ?>';
+    $('#modal-remove').modal();
+    $('#modal-form-telefone').modal();
+
+    $('.remove-telefone').click(function(){
+        let id = $(this).data('id');
+        telefone_id = id;
+    });    
+
+    $('#btn-confirma-remove').click(()=>{
+        let url = '?controle=telefone&metodo=deletarTelefone&id_tel='+telefone_id+'&id_con='+contato_id;
+        $.get(url).then(()=>{
+            $('#row_'+telefone_id).fadeOut();
+            ALERT_SUCCESS('Telefone Removido com Sucesso');
+        })
+    });
+
+
+
+    function editTelefone(id,ddd,tel,tipo){
+        $('#titulo').html('Editar Contato');
+        $('#id').val(id);
+        $('#ddd').val(ddd);
+        $('#num').val(tel);
+        $('#tp').val(tipo).change();
+    }
+
+    function cleanForm(){
+        $('#titulo').html('Novo Telefone');
+        $('#id').val('');
+        $('#ddd').val('');
+        $('#num').val('');
+        $('#tp_tel').val('');
+    }
+</script>
+<?php if(isset($_SESSION['__MSG_SUCCESS__'])): ?>
+    <script type="text/javascript">
+        ALERT_SUCCESS('<?= $_SESSION['__MSG_SUCCESS__'] ?>');
+    </script>
+<?php unset($_SESSION['__MSG_SUCCESS__']) ?>
+<?php endif; ?>
 </body>
 </html>

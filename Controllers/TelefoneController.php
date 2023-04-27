@@ -51,8 +51,10 @@ class TelefoneController
                     $t->setNum(DadosFiltro::numerico($_POST['nr_tel']));
                     $t->setTipo($_POST['tp_tel']);
                     $t->setContatoId($_REQUEST['id_con']);
-                    if($t->save())
+                    if($t->save()){
+                        $_SESSION['__MSG_SUCCESS__'] = "Telefone Inserido/Alterado com Sucesso";
                         Application::redirecionar("?controle=telefone&metodo=listarTelefones&id_con=".$_REQUEST['id_con']);
+                    }
                     else    
                         exit("ERROR: no metodo ".$_GET['metodo']);
                 }

@@ -47,7 +47,7 @@ require_once "Template/header.phtml";
                             class="modal-trigger waves-effect waves-light btn indigo accent-4 tooltipped"
                             data-target="modal-form-contato" 
                             data-position="top" 
-                            data-tooltip="Editar"->
+                            data-tooltip="Editar">
                             <i class="material-icons">create</i> <!--Alterar-->
                         </button>
 
@@ -74,15 +74,7 @@ require_once "Template/header.phtml";
     <?php require_once "Template/footer.phtml"; ?> 
     <script type="text/javascript">
     var contato_id = null;
-    const ALERT_SUCCESS = (text)=>{
-        $.toast({
-            heading: 'Ação Sucedida',
-            text: text,
-            showHideTransition: 'slide',
-            icon: 'success',
-            position: 'top-center'
-        });
-    }
+
     $('#modal-remove').modal();
     $('#modal-form-contato').modal();
 
@@ -99,7 +91,7 @@ require_once "Template/header.phtml";
         })
     });
 
-    $('.tooltipped').tooltip();
+
 
     function editContato(id,name,email){
         $('#titulo').html('Editar Contato');
