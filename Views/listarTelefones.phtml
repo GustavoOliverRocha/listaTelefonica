@@ -7,17 +7,17 @@ require_once "Template/header.phtml";
 <body>
 	<?php require_once "Template/navbar.phtml"; ?>
 	<!--<a href="?controle=telefone&metodo=manterTelefone&id_con=<?php echo $v_con->getId(); ?>">Inserir Telefone</a>
-	<a href="?controle=contato&metodo=listarContatos">Voltar</a>-->
+	<a href="?controle=contato&metodo=listarContatos">Voltar</a>--><br><br>
 <div class="container">
 	<div class="row">	
 		<div class="col m12">
-			<a class="waves-effect waves-light btn-small" href="?controle=contato&metodo=listarContatos">
+			<a class="waves-effect waves-light btn indigo accent-4" href="?controle=contato&metodo=listarContatos">
 				<i class="small material-icons left ">arrow_back</i> Lista de Contatos
 			</a>
 			<!--<a class="waves-effect waves-light btn btn-right right" href="?controle=telefone&metodo=manterTelefone&id_con=<?php echo $v_con->getId(); ?>"><i class="material-icons left">add</i> Novo Telefone</a>-->
 			<button
 				onclick="cleanForm()" 
-				class="modal-trigger waves-effect waves-light btn indigo accent-4 tooltipped btn-right right"                            
+				class="modal-trigger waves-effect waves-light btn tooltipped btn-right right"                            
 				data-target="modal-form-telefone" 
 		        data-position="top" 
 		        data-tooltip="Editar">
