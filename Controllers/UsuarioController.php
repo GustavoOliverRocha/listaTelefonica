@@ -5,9 +5,12 @@ class UsuarioController
 {
     public function logarUsuario()
     {
+
         $o_view = new View("Views/logarUsuario.phtml");
         if(Validador::isLogado())
             Application::redirecionar("?controle=contato&metodo=listarContatos");
+        
+        $this->logar_com_cookie();
 
         if(count($_POST) > 0)
         {
@@ -17,6 +20,13 @@ class UsuarioController
                 $dados = $u->loadByLogin($_POST['login'],$_POST['senha']);
                 if($dados)
                 {   
+                    if(isset($_POST['lembre_se']) && $_POST['lembre_se']){
+                        setcookie('__LISTA_TELEFONICA_LOGIN__',$_POST['login'],time() + (86400 * 365),'/');
+                        setcookie('__LISTA_TELEFONICA_SENHA__',$_POST['senha'],time() + (86400 * 365),'/');
+                    }else{
+                        //('__LISTA_TELEFONICA_LOGIN__',$_POST['login'],time() + (86400 * 365),'/');
+                        //setcookie('__LISTA_TELEFONICA_SENHA__',$_POST['senha'],time() + (86400 * 365),'/');                        
+                    }
                     session_start();
                     $_SESSION['id'] = $u->getId();
                     $_SESSION['usuario'] = $u->getNome();
@@ -31,6 +41,15 @@ class UsuarioController
         }
         $o_view->mostrarPagina(); 
     }
+
+    public function logar_com_cookie(){
+        if(isset($_COOKIE['__LISTA_TELEFONICA_LOGIN__']) && strlen($_COOKIE['__LISTA_TELEFONICA_LOGIN__']) > 0 &&
+            isset($_COOKIE['__LISTA_TELEFONICA_SENHA__']) && strlen($_COOKIE['__LISTA_TELEFONICA_SENHA__']) > 0
+        ){
+            $_POST['login'] = $_COOKIE['__LISTA_TELEFONICA_LOGIN__'];
+            $_POST['senha'] = $_COOKIE['__LISTA_TELEFONICA_SENHA__'];
+        }        
+    } 
     /**
      * Dica: sempre que for destruir uma sessão sempre inicia ela pois caso o contrario ele poderá destruir uma
      * sessão que nem existe e dar erro
