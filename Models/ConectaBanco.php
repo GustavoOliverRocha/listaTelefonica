@@ -24,6 +24,7 @@ abstract class ConectaBanco
         try
         {
             $this->con = new PDO("mysql:host=$this->servidor;dbname=$this->banco",$this->usuario,$this->senha);
+            $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             return $this->con;
         }
         catch(PDOException $error)
@@ -31,6 +32,24 @@ abstract class ConectaBanco
             echo "ERROR: Conexão falhou <br>" . $error->getMessage();
         }
     }
+
+    protected function query($sql)
+    {
+        $data = null;
+        try{
+            $res = $this->conectar()->prepare($sql);
+            $res->execute();
+            $data = $res->fetchAll(PDO::FETCH_OBJ);
+        }
+        catch(PDOException $error){
+            echo "<pre>";
+            echo 'SQL ERROR: '.$error->errorInfo[2].'<br>';
+            print_r($error);exit;
+            echo "ERROR: <br>".$error->getMessage();
+        }
+        return $data;
+    }
+
 }
 
 ?>

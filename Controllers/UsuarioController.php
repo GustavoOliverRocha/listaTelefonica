@@ -96,5 +96,83 @@ class UsuarioController
         }
         $o_view->mostrarPagina();
     }
+
+    public function login_google(){
+function http_post($url, $data) {
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_POST, 1);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($data));
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($ch);
+    curl_close($ch);
+    return $response;
+}
+
+function http_get($url, $data) {
+    $url = $url . '?' . http_build_query($data);
+    $ch = curl_init($url);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    $response = curl_exec($ch);
+    curl_close($ch);
+    return $response;
+}
+
+        // Configurações
+        $client_id = '679388257467-hgt6d8kaaiug7n523u4g8qt4vcs89mrb.apps.googleusercontent.com';
+        $client_secret = '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';
+        $redirect_uri = DadosFiltro::get_baseurl().'/?controle=usuario&metodo=login_google';
+        $auth_url = 'https://accounts.google.com/o/oauth2/auth';
+        $token_url = 'https://accounts.google.com/o/oauth2/token';
+        $user_info_url = 'https://www.googleapis.com/oauth2/v1/userinfo';
+
+        // Etapa 1: Redirecionar o usuário para o Google para autenticação
+        if (!isset($_GET['code'])) {
+            $auth_params = array(
+                'response_type' => 'code',
+                'client_id' => $client_id,
+                'redirect_uri' => $redirect_uri,
+                'scope' => 'https://www.googleapis.com/auth/userinfo.email',
+                'approval_prompt' => 'force', // Forçar a autenticação novamente
+                'access_type' => 'offline' // Solicitar um token de atualização
+            );
+
+            $auth_url = $auth_url . '?' . http_build_query($auth_params);
+            header('Location: ' . $auth_url);
+            exit;
+        }
+
+        // Etapa 2: Trocar o código de autorização por um token de acesso
+        if (isset($_GET['code'])) {
+            $token_params = array(
+                'code' => $_GET['code'],
+                'client_id' => $client_id,
+                'client_secret' => $client_secret,
+                'redirect_uri' => $redirect_uri,
+                'grant_type' => 'authorization_code'
+            );
+
+            $token_response = http_post($token_url, $token_params);
+            $token_data = json_decode($token_response, true);
+            DadosFiltro::dump_data($token_response);
+            if (isset($token_data['access_token'])) {
+                // Etapa 3: Obter informações do perfil do usuário
+                $user_info_response = http_get($user_info_url, array('access_token' => $token_data['access_token']));
+                $user_info = json_decode($user_info_response, true);
+
+                if (isset($user_info['email'])) {
+                    // O usuário está autenticado com sucesso
+                    echo 'ID: ' . $user_info['id'] . '<br>';
+                    echo 'Nome: ' . $user_info['name'] . '<br>';
+                    echo 'Email: ' . $user_info['email'] . '<br>';
+                } else {
+                    echo 'Falha ao obter informações do perfil do usuário.';
+                }
+            } else {
+                echo 'Falha ao obter o token de acesso.';
+            }
+        }
+
+    }
+
 }
 ?>
