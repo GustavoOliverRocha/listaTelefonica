@@ -193,6 +193,14 @@ class Contato extends ConectaBanco
         }
     }
 
+    public function getByUsuario(int $usuario_id): array|null{
+            $sql = "SELECT * FROM tb_contato WHERE fk_cd_usuario = ?"; 
 
+            $exec = $this->conectar()->prepare($sql);
+            $exec->execute([$usuario_id]);
+            $data = $exec->fetchAll(\PDO::FETCH_OBJ);
+
+            return (isset($data[0]) && !empty($data)) ? $data : null;
+    }
 }
 ?>

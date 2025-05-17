@@ -5,8 +5,7 @@ class UsuarioController
 {
     public function logarUsuario()
     {
-
-        $o_view = new View("Views/logarUsuario.phtml");
+        $o_view = new View("view/login/index.phtml");
         if(Validador::isLogado())
             Application::redirecionar("?controle=contato&metodo=listarContatos");
         

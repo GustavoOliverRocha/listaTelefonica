@@ -1,0 +1,38 @@
+<div class="modal fade" id="modal-cadastrar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Novo Contato</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form method="POST" action="?controle=Contato&metodo=manterContatos">
+          <!-- Avatar do contato -->
+          <div class="text-center mb-2">
+            <div style="width: 120px; height: 120px; margin: auto;">
+              <img id="avatarPreview" src="https://pembrokeshire-herald.com/wp-content/uploads/2017/04/nopic.jpg"
+                   alt="Foto do contato"
+                   class="rounded-circle border border-3 border-white shadow"
+                   style="width: 120px; height: 120px; object-fit: cover; cursor: pointer;">
+              <input type="file" id="avatarInput" accept="image/*" hidden>
+            </div>
+            <small class="text-muted d-block mt-1">Clique na imagem para alterar</small>
+          </div>
+
+          <div class="mb-3">
+            <label for="nome" class="col-form-label">Nome *</label>
+            <input type="text" class="form-control" id="nome" name="nm_con" placeholder="Insira o nome" required>
+          </div>
+          <div class="mb-3">
+            <label for="email" class="col-form-label">E-mail</label>
+            <input type="email" class="form-control" id="email" name="email_con" placeholder="Insira o email">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+        <button type="button" class="btn btn-success">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -20,7 +20,8 @@ class ContatoController
     public function listarContatos()
     {
         $c = new Contato();
-        $v = new View("Views/listarContatos.phtml");
+        //$v = new View("Views/listarContatos.phtml");
+        $v = new View("view/contato/index.phtml");
         $v->setDados(array("contatos" => $c->listar($_SESSION['id'])));      
         $v->mostrarPagina();
     } 
@@ -79,6 +80,24 @@ class ContatoController
     }
 
     static function ActionMessage($type,$msg){
+
+    }
+
+    public function listarPorUsuario(){
+        try{
+            header('Content-Type: application/json; charset=utf-8');
+            $usuario_id = 3;
+            $data = (new Contato)->getByUsuario($usuario_id);
+
+            if(is_null($data)){
+                echoJson(0, [], 'Nenhum contato encontrado');
+            }
+
+            echoJson(1, $data);
+
+        }catch(Exception $e){
+            echoJson(0, $e, $e->getMessage());
+        }
 
     }
 }
